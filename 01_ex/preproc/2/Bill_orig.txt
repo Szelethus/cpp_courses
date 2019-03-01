@@ -1,0 +1,15 @@
+Spanglis Stangli Étterem
+
+======== SZÁMLA =========
+
+Füstölt_Hal      2500 HUF
+Füstölt_Krokett  1500 HUF
+Füstölt_Ásványvíz 500 HUF
+
+========= VEVŐ ==========
+
+Név: Umann Kristóf
+
+= TÖRZSVÁSÁROLÓI ADATOK =
+
+ID: UK, Lakcím: Híd alatt, Kedvezmény: 10%

@@ -1,0 +1,10 @@
+#include "Email.h"
+
+NAME(Umann Kristóf)
+
+MAIN_BODY(Tesla Inc., Elon Musk smoked yet another joint on air, AutoPilot)
+
+#define GOOD_EMPLOYEE
+#include "FinalWords.h"
+
+CLOSING_STATEMENT(Tesla Inc.)

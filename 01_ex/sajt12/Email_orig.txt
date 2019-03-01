@@ -1,0 +1,15 @@
+#define INTRODUCTION(NAME) \
+Hi NAME!
+
+
+INTRODUCTION(Umann Kristó)
+
+#define MAIN_BODY(COMPANY_NAME, REASON, TEAM) \
+Unfortunately, due to the severe financial situation at COMPANY_NAME as REASON, were having to cut down on our workforce. \
+This impacts several teams at out company, such as yours, TEAM. With that\
+in mind, effective immediately, were terminating your employment.
+
+MAIN_BODY(Tesla Inc., Elon Musk smoked yet another joint on air, cleaning )
+
+#define BAD_EMPLOYEE
+#include "FinalStatement.def"

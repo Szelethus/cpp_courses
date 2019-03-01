@@ -1,0 +1,17 @@
+#include "Bill_v2.def"
+
+Spanglis Stangli Étterem
+
+======== SZAMLA =========
+
+Fustolt_Hal
+Fustolt_Krokett
+Fustolt_Asvanyviz
+
+========= VEVO ==========
+
+Név: Umann Kristof
+
+= TORZSVASAROLOI ADATOK =
+
+UK

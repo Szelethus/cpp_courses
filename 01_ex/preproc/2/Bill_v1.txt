@@ -1,0 +1,30 @@
+#define Fustolt_Hal \
+  Fustolt_Hal 2500 HUF
+
+#define Fustolt_Krokett \
+  Fustolt_Krokett 1500 HUF
+
+#define Fustolt_Asvanyviz \
+  Fustolt_Asvanyviz 500 HUF
+
+#define UK \
+  ID: UK, \
+  Lakcim: Hid alatt, \
+  Kedvezmény: 10%
+  
+
+Spanglis Stangli Étterem
+
+======== SZAMLA =========
+
+Fustolt_Hal
+Fustolt_Krokett
+Fustolt_Asvanyviz
+
+========= VEVO ==========
+
+Név: Umann Kristof
+
+= TORZSVASAROLOI ADATOK =
+
+UK

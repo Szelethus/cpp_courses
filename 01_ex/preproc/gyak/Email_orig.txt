@@ -1,0 +1,9 @@
+#include "Email.h"
+
+INTRODUCTION(Umann Kristóf)
+
+MAIN_BODY(Tesla Inc., Elon Musk smoked yet another joint on air, cleaning team)
+
+#define GOOD_EMPLOYEE
+#include "FinalStatement.def"
+

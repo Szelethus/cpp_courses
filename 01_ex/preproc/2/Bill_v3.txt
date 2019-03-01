@@ -1,0 +1,11 @@
+#include "Bill_v2.def"
+
+Spanglis Stangli Étterem
+
+ADD_ITEM(Fustolt_Hal)
+ADD_ITEM(Fustolt_Krokett)
+ADD_ITEM(Fustolt_Asvanyviz)
+
+ADD_CUSTOMER_NAME(Umann Kristof)
+
+ADD_REGULAR_CUSTOMER(UK)
