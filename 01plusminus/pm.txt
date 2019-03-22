@@ -1,0 +1,73 @@
+// 1. Legyen adott egy print függvény, és
+// tekintsük a main függvénynek három különböző
+// implementációját.
+// Ezen különböző implementációkra:
+// Lefordul-e az kód?
+//   - Ha nem, miért nem?
+//   - Ha igen, akkor jól definiált a
+//     programunk?
+//     * Ha nem, miért nem?
+//     * Ha igen, mit ír ki?
+
+#include <iostream>
+
+void print(char *p) {
+  p[2] = '\0';
+  for (int i = 0; p[i] != '\0'; ++i)
+    std::cout << p[i];
+}
+
+// a.)
+
+int main() {
+  char *p = "Hello";
+  print(p);
+}
+
+// b.)
+
+int main() {
+  char t[] = "Hello";
+  print(t);
+}
+
+// c.)
+
+int main() {
+  const char *p = "Hello";
+  print(p);
+}
+
+// 2. Milyen objektumokat kell *mindig*
+// inicializálnunk? (pl. inicializációs
+// listában)
+
+// 3. Lefordul-e az kód?
+//   - Ha nem, miért nem?
+//   - Ha igen, akkor jól definiált a
+//     programunk?
+//     * Ha nem, miért nem?
+//     * Ha igen, mit ír ki?
+
+#include <iostream>
+
+void f(int *p, bool shouldDelete) {
+  static int *ptr;
+
+  if (p != NULL)
+    ptr = p;
+
+  std::cout << ++(*ptr) << '\n';
+
+  if (shouldDelete) {
+    delete p;
+    delete ptr;
+  }
+}
+
+int main() {
+  f(new int(0), false);
+  f(NULL, false);
+  f(NULL, false);
+  f(NULL, true);
+}
