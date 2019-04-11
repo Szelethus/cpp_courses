@@ -1,0 +1,39 @@
+// 1. Mit jelent C++ban a konstans korrektség fogalma?
+
+// 2. Az alábbi típushoz terheljük túl a * operátort úgy,
+//    hogy az adattagok szorzatösszegét adja vissza!
+
+struct Vec {
+  int x, y;
+
+  Vec(int a, int b) {
+    x = a;
+    y = b;
+  }
+};
+
+int operator*(const Vec &v1, const Vec &v2) {
+  return v1.a * v2.a + v1.b * v2.b;
+}
+
+int main() {
+  Vec v1(1, 2);
+  Vec v2(4, 5);
+
+  std::cout << v1 * v2 << '\n'; // várt eredmény: 14
+}
+
+// 3. Fordul-e az alábbi program? Ha nem, miért nem? Ha igen, helyes?
+//    Ha nem, miért nem? Ha igen, mit ír ki?
+
+struct A {
+  int a, b;
+
+  A() : b(13), a(b) {}
+};
+
+int main() {
+
+  A alma;
+  std::cout << alma.a << ' ' << alma.b << '\n';
+}
