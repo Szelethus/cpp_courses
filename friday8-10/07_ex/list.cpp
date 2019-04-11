@@ -39,7 +39,7 @@ public:
 };
 
 class ConstIterator {
-  Node *ptr;
+  const Node *ptr;
 
 public:
   ConstIterator(Node *ptr_) : ptr(ptr_) {}
@@ -63,7 +63,7 @@ public:
     return !(*this == other);
   } 
 
-  int& operator*() {
+  int operator*() {
     return ptr->data;
   }
 };
