@@ -1,0 +1,22 @@
+#include <iostream>
+
+struct Store {
+  int *ptr;
+
+  Store() : ptr(new int) {}
+
+  // Írjunk további metódusokat a Store osztályba, hogy egy reguláris típus
+  // legyen!
+};
+
+
+int main() {
+  Store a;
+
+  Store b = a;
+
+  {
+    Store c;
+    c = a;
+  }
+}
