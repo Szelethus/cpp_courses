@@ -1,0 +1,29 @@
+// 1. Mi a különbség a konstansra mutató mutató és a konstans
+//    mutató között? Írj mindkettőre példát!
+
+// 2. Implementáld a swap függvényt referenciákkal!
+
+// 3. Lefordul-e az alábbi program?
+//    - Ha nem, miért nem?
+//    - Ha igen, akkor helyes?
+//      * Ha nem, miért nem?
+//      * Ha igen, mit ír ki?
+
+struct Node {
+  const int data;
+  Node *next;
+
+  Node(int data_) {
+    this->data = data_;
+    next = nullptr;
+  }
+};
+
+int main() {
+  Node a(5);
+  a.next = new Node(6);
+
+  std::cout << a.next->data << '\n';
+
+  delete a.next;
+}
