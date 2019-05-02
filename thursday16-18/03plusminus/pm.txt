@@ -1,0 +1,38 @@
+// Adjunk vissza egy iterátort egy inteket tároló, 
+// tetszőleges konténer legnagyobb elemére!
+// A "myMax" nevű függvényünk két tetszőleges forward
+// iterátort vár paraméterül, melyek ugyanarra a
+// konténerre hivatkoznak!
+
+template <class T>
+T myMax(T begin, T end) {
+  int max = *begin;
+  T maxIt = begin;
+  while (begin != end) {
+    if (*begin > max) {
+      max = *begin;
+      maxIt = begin;
+    }
+    ++begin;
+  }
+  return maxIt;
+}
+
+int main() {
+  std::vector<int> v = { 0, 5, 4, 2 };
+  std::vector<int>::iterator it1 = myMax(v.begin(), v.end());
+
+  std::cout << *it1 << '\n'; // kimenet: 5
+
+  std::list<int> l = { 10, 9, 4 };
+  std::list<int>::iterator it2 = myMax(v.begin(), v.end());
+
+  std::cout << *it2 << '\n'; // kimenet: 10
+
+  int t[] = { 5, 3, 2, 7, 8 };
+  int *it3 = myMax(t, t + 5);
+
+  std::cout << *it3 << '\n'; // kimenet: 8
+
+
+}
