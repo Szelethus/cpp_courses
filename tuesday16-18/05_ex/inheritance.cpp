@@ -43,7 +43,6 @@ void printKor(const Kor *k) {
 int main() {
   std::vector<Sikidom *> v;
 
-
   v.push_back(new Kor(4.5));
   v.push_back(new Teglalap(4.2, 5));
 
@@ -53,7 +52,6 @@ int main() {
       printKor(tmp);
     }
   }
-
 
   for (auto it = v.begin(); it != v.end(); ++it)
     delete *it;

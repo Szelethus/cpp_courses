@@ -1,0 +1,72 @@
+=============== 1 =================
+
+Definiáld a statikus függvény, a függvényre statikus változót és a forditási
+egységre statikus változót!
+
+Ird meg a swap függvényt pointerekkel!
+
+// 3. Lefordul-e az alábbi program?
+//    - Ha nem, miért nem?
+//    - Ha igen, akkor helyes?
+//      * Ha nem, miért nem?
+//      * Ha igen, mit ír ki?
+
+struct Node {
+  int data;
+  Node *next;
+
+  Node(int i) : data(i), next(nullptr) {}
+};
+
+int main() {
+  Node head(6);
+
+  head->next = new Node(7);
+
+  std::cout << head->next->data;
+}
+
+
+=============== 2 ===================
+
+Store {
+  int i;
+
+  Store(int i_) : i(i_) {}
+};
+
+Csinálj a fenti osztályból regulárist tipust!
+
+============== 3 =================
+
+Ird meg a az általános forEach függvényt, ami egy iterátor párost és egy
+funktort vár paraméterül, és minden elemre meghivja a funktor () operátorát!
+
+???
+??? forEach(??? begin, ??? end, ??? comp) {
+  while (???) {
+    ???
+  }
+}
+
+struct AddOne {
+  void operator()(int &i) {
+    ++i;
+  }
+};
+
+int main() {
+  std::vector<int> v = {1, 2, 3, 1, 2, 3};
+
+  forEach(v.begin(), v.end(), AddOne());
+
+  // v elemei most: 2, 3, 4, 2, 3, 4
+}
+
+================ EXTRA =================
+
+// Adjunk vissza egy iterátort egy inteket tároló, 
+// tetszőleges konténer legnagyobb elemére!
+// A "myMax" nevű függvényünk két tetszőleges forward
+// iterátort vár paraméterül, melyek ugyanarra a
+// konténerre hivatkoznak!
