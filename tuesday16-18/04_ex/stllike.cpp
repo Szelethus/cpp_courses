@@ -16,7 +16,7 @@ struct FirstHigherThanTen {
   bool operator()(int i) { return i > 10; }
 };
 
-template <class Iterator, class Compare>
+template <typename Iterator, class Compare>
 Iterator myFind(Iterator begin, Iterator end, Compare op) {
   while (begin != end) {
     if (op(*begin)) {
