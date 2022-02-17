@@ -101,3 +101,8 @@ int main() {
 ```
 
 ![image](https://user-images.githubusercontent.com/23276031/154488639-1d1236d3-1a6a-4afb-861c-863300e6dc02.png)
+  
+### Linux, Mac gépeken
+  
+1. Nyiss meg egy terminált
+2. A 6. ponttal kezdve folytassátok a fenti lépéseket.
