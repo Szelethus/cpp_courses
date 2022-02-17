@@ -43,6 +43,8 @@ Többek között a fenti okokból a C++ több nem intuitívnak tűnő megoldáso
 
 ## Feljesztői környezet felállítása
 
+### Windows
+
 1. Látogassunk el a https://info.caesar.elte.hu/ címre, jelentkezzen be, kattintson bal oldalt az alapadatokra, és igényelje meg az interaktív belépést.
 
 ![image](https://user-images.githubusercontent.com/23276031/154069432-abb3c2b6-7878-4bcd-8a56-6129779b356e.png)
@@ -54,4 +56,48 @@ Többek között a fenti okokból a C++ több nem intuitívnak tűnő megoldáso
 
 4. Kattintsunk az 'Open' gombra, fogadjuk el az figyelmeztető üzenetet, majd írjuk be a jelszavunkat. Akkor a kurzor nem fog mozogni, ettől még a billentyűleütéseket észleli a gép!
 
+![image](https://user-images.githubusercontent.com/23276031/154446573-498e83e0-46ab-476e-9f31-c30f66247c36.png)
 
+5. Nyomjunk entert, és ha minden jól ment, akkor bent is vagyunk a szerveren.
+
+![image](https://user-images.githubusercontent.com/23276031/154446668-97d5918b-1b2e-4f71-9f50-398206117e2c.png)
+
+6. Hozzunk létre egy új mappát `test` néven. Ezt az `mkdir` paranccsal lehet megtenni. Lépjünk be ebbe a mappába a `cd` paranccsal. (Az `ls` paranccsal tudjuk megnézni a jelenlegi mappánk tartalmát)
+<!--Megjegyzésképp, a terminálba kiadandó parancsokat `$` jellel szokás kezdeni kódpéldában, ezt ti ne írjátok be.-->
+
+```lang=bash
+~$ mkdir test
+~$ cd test
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154481116-b596ae35-3a26-4c91-8c4a-4402ec2e7c57.png)
+
+7. Nyissunk meg egy új fájlt `test.cpp` néven a `nano` text editor programmal. A `nano` egy olyan szövegszerksztő program, melyet a terminálból tudunk használni. Talán szokatlan módon, az egér itt nem használható, tehát a nyilakkal tudunk csak navigálni. A szövegszerkesztő allján megtekinthetőek milyen parancsok hajthatók végre. A kalap karakter a CTRL billentyűre hivatkozik, pl. a fájlt a CTRL+O billentyűkombinációval tudjuk lementeni.
+
+```lang=bash
+~/test$ nano test.cpp
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154482579-f4ad1a90-c1d5-48fa-b8ef-9968ff8798f2.png)
+
+8. Másoljuk be az alábbi kódot. Windows a terminálba gyakran ezt az egéren a jobb klikk gombbal lehet megtenni (igen, komolyan). Linuxon (talán Mac-en is), a CTRL+SHIFT+V fog szöveget beszúrni a vágólapról.
+
+```lang=c++
+#include <iostream>
+
+int main() {
+  std::cout << "Hello world!";
+}
+```
+
+9. Mentsük le (CTRL+O) ezt a fájlt, majd lépjünk ki a nano-ból (CTRL+X).
+10. Fordítsuk le ezt a fájlt a `g++` nevű programmal. Ellenőrizzük, hogy valóban létrejött egy futtatható állomány az `ls` parancs segítségével. Ezután, futtassuk a programot úgy, hogy hivatkozunk a saját mappánkra, amelyet mindig a ponttal tehetünk meg (`.`), és ezen a mappán belül (`./`) megadjuk a létrejött generált fájl nevét (`./a.out`).
+
+```lang=bash
+
+~/test$ g++ test.cpp
+~/test$ ls
+~/test$ ./a.out
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154488639-1d1236d3-1a6a-4afb-861c-863300e6dc02.png)
