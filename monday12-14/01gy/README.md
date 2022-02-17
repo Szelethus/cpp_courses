@@ -5,8 +5,11 @@
 ### Linkek, kezdés
 
 Email címem: dkszelethus <kukac> gmail <pont> com
+  
 Canvas oldal: https://canvas.elte.hu/courses/26083
+  
 A tárgy honlapja: https://gsd.web.elte.hu/cpp-en/
+  
 Az IKs tárgyhoz jegyzet (sok átfedéssel ezzel a kurzussal): https://people.inf.elte.hu/szelethus/LaTeX/cpp/cpp_book/cpp_book.pdf
 
 Az órák hétfőnként 12:00tól 13:30ig tartanak.
