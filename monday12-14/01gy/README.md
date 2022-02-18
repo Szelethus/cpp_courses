@@ -372,7 +372,7 @@ $ g++ -E preproc_include.cpp
 
 A header guard ideális esetben a beillesztendő fájl teljes tartalmát tartalmazza.
 
-#### Miért írunk <iostream>-et, és miért nem "iostream"-et? És mi az az iostream?
+#### Miért írunk `<iostream>`-et, és miért nem `"iostream"`-et? És mi az az `iostream`?
 
 Korábban megneveztük azt a fájl, amelyet be akartunk illeszteni a `#include` direktíva segítségével. Nem kellett a _abszolút_ útvonalat megadni (pl. `C:\Users\Szelethus\Documents\cpp\header.h`, vagy a ceasar szerveren `/afs/elte.hu/user/s/szelethus/home/header.h`), mert a direktívát tartalmazó fájl és a billesztendő fájl egy mappában volt, így elég volt a _relatív_ útvonalat megadni (a jelenlegi mappához képest hol található a fájl). `iostream` nevű fájl azonban nincs itt, mi a trükk?
 
@@ -384,3 +384,26 @@ Többek között ebben a mappában található a _standard könyvtár_ header f�
 
 A standard könyvtárban számos függvény, változó és osztály található, melyeknek köszönhetően nem kell teljesen nulláról kezdenünk egy program megírását. Az `iostream` is ilyen, az "io" az "input/output"-re utal, a "stream" meg azokra az osztályokra és változókra, amik segítségével az adatok ki/be "folynak" a programba/programból. Többek között ebben a könyvtárban található az `std::cout` változó is.
 
+### Változók, típusrendszer
+
+Az előző részben a fordítás első részéről beszéltünk, a processzorrol, ami egy _nyelvfüggetlen_ eszköz. Ezt demonstrálta az, hogy nem is C++ kódot szerkesztettünk össze vele, hanem tetszőleges szövegeket. Innentől kezdve azonban áttérünk C++ra.
+
+#### Változók
+
+Világos, hogy programunkban szükség lesz adatok eltárolására. Példaképp, ha egy algorithmussal meg akarjuk számolni hogy egy szóban hány mássalhangzó van, ezt a számot legalább el kell tárolnunk valahol. Ha ezt számítógép nélkül tesszük, lehet ez az adathordozó a kezünk: szorítsuk ökölbe a kezünket, majd nézzük meg a szó első betűjét, ha az mássalhanzó, nyújtsuk ki az egyik ujjunkat. Ezután nézzük meg a második betűt, stb. Ebben a kis példában a kezünk a változó, melynek az "értéke" változik.
+
+A programunkban ez a változó a számítógép memóriájában lesz kis szelet. Aki programozott már pythonban, annak ismerős lehet hogyan kell ott változókat létrehozni:
+
+```lang=python
+counter = 0
+```
+
+
+<!---
+### Függvények a C++ban
+
+
+#### A `main` függvény
+
+C++ban, a lefordított program végrehajtása a `main` függvény első sorával kezdődik, és annak az utolsó sorával fejeződik be (ez nem _teljesen_ igaz, hisz a legelső lépés a globálsi változók inicializációja és a `main` függvény argumentumainak kiértékelése, de ezekről később beszélünk, így első lépésként állapodjunk meg ebben a féligazságban). 
+->
