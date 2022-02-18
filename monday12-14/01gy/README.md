@@ -266,4 +266,121 @@ $ g++ -E preproc_else.cpp
 
 #### Fájl beillesztés a preprocesszorral
 
-Ezzel eljutottunk a `#include` direktíváig.
+Ezzel eljutottunk a `#include` direktíváig. Ennek segítségével az arugmentumként megadott fájl tartalmát beilleszti a preprocesszor. Hozzunk létre egy új fájlt `header.h` néven:
+
+```lang=c++
+Header fájl!
+```
+
+Valamint egy új fájlt `preproc_include.cpp` néven:
+
+```lang=c++
+#include "header.h"
+
+Cpp fájl!
+```
+
+Mivel a `preproc_include.cpp` fájl explicit módon megnevezi a billesztendő fájlt, elegendő csupán ezt a fájlt megadni a preprocesszornak:
+
+```lang=bash
+$ g++ -E preproc_include.cpp
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154682911-13039694-1ae9-45b1-9fb1-703687b5bc52.png)
+
+Megfigyelhetjük, hogy a preprocesszor összeszerkesztette a `header.h` és `preproc_include.cpp` fájlokat. Ha többször használjuk ezt a direktívát, akkor többször tudjuk egy fájl tartalmát beilleszteni:
+
+`preproc_include.cpp`:
+```lang=c++
+#include "header.h"
+#include "header.h"
+#include "header.h"
+#include "header.h"
+
+Cpp fájl!
+```
+
+```lang=bash
+$ g++ -E preproc_include.cpp
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154683689-c71050b6-5c1d-499d-b5ad-7aebace4ebf3.png)
+
+  Ez nem csak szándékosan követhet be. Amennyiben egy fájlba be`#include`oljuk `A` fájlt és `B` fájlt, és mindkettő be`#include`olja `C` fájlt, akkor a preprocesszor kétszer fogja beilleszteni a `C` fájlt. Valós C++ projektekben ha ez még nem is okoz fordítási hibát, akkor is lassíthatja a fordítás többi lépését (hisz több kódot kell majd beolvasni és feldolgozni). A preprocesszor az `#include` direktívák által meghatározott fájlok tranzitív lezártját adja vissza. 
+
+![image](https://user-images.githubusercontent.com/23276031/154685771-775009fa-0894-4d13-acc6-1fd624a68354.png)
+
+A fájl többszöri beillesztésénél súlyosabb hiba, ha az `#include` gráfban kör jelenik meg:
+
+`header.h`:
+```lang=c++
+#include "preproc.cpp"
+
+Header fájl!
+```
+
+`preproc_include.cpp`:
+
+```lang=c++
+#include "header.h"
+
+Cpp fájl!
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154686160-ce174fcf-782a-4866-bce8-7bfd92ddd223.png)
+
+```lang=bash
+$ g++ -E preproc_include.cpp
+```
+
+A kimenetben láthatjuk hogy a beillesztés egyik fájlról ugrik a másikra. Ha feljebb tekerünk, látni fogjuk hogy a fordítás nem volt sikeres, kapunk egy errort:
+
+![image](https://user-images.githubusercontent.com/23276031/154686387-7ae9dba6-3567-42b7-89fd-b3b4155d06b1.png)
+
+#### Header guard
+
+Ezen hibák kiküszöbölésére, összetehetjük az eddig megszerzett tudásunkat, hogy egy már beillesztésre került fájl ne kerüljön beillesztésre mégegyszer. Ezt egy un. _header guard_-al fogjuk elérni.
+
+`header.h`:
+```lang=c++
+#ifndef HEADER_H
+#define HEADER_H
+
+Header fájl!
+
+#endif
+```
+
+A `header.h` első és utolsó sora által közrefogott szöveg akkor kerül beillesztésre, ha a `HEADER_H` makró **nincs** definiálva (konvenció szerint a makró neve a fájl nevére szokott hasonlítani). Ebben a részben viszont definiáljuk a `HEADER_H` makrót, így ha mégegyszer be szeretnánk illeszteni a fájl tartalmát, akkor az `#ifndef` feltétele nem fog teljesülni, és a benne levő tartalom se kerül beillesztésre.
+
+`preproc_include.cpp`:
+
+```lang=c++
+#include "header.h"
+#include "header.h"
+#include "header.h"
+#include "header.h"
+
+Cpp fájl!
+```
+
+```lang=bash
+$ g++ -E preproc_include.cpp
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154690662-a1289847-2d0c-41ec-95fd-5f1fe6a76122.png)
+
+A header guard ideális esetben a beillesztendő fájl teljes tartalmát tartalmazza.
+
+#### Miért írunk <iostream>-et, és miért nem "iostream"-et? És mi az az iostream?
+
+Korábban megneveztük azt a fájl, amelyet be akartunk illeszteni a `#include` direktíva segítségével. Nem kellett a _abszolút_ útvonalat megadni (pl. `C:\Users\Szelethus\Documents\cpp\header.h`, vagy a ceasar szerveren `/afs/elte.hu/user/s/szelethus/home/header.h`), mert a direktívát tartalmazó fájl és a billesztendő fájl egy mappában volt, így elég volt a _relatív_ útvonalat megadni (a jelenlegi mappához képest hol található a fájl). `iostream` nevű fájl azonban nincs itt, mi a trükk?
+
+A trükk az, hogy a `g++` alapértelmezett konfigurációjában meg van adva, hogy ez a fájl hol található. Ezt a következő képen láthatjuk, de ebbe nem célszerű elmerülni, csupán demonstrálja hogy a fájl valahol valóban létezik:
+![image](https://user-images.githubusercontent.com/23276031/154692445-e26111b1-bad7-43af-829f-028df9be1660.png)
+
+Többek között ebben a mappában található a _standard könyvtár_ header fájljai (ez sem lényeges hogy hol van, természtesen):
+![image](https://user-images.githubusercontent.com/23276031/154692604-01d7b13e-7c36-47dc-af31-54b76cd94604.png)
+
+A standard könyvtárban számos függvény, változó és osztály található, melyeknek köszönhetően nem kell teljesen nulláról kezdenünk egy program megírását. Az `iostream` is ilyen, az "io" az "input/output"-re utal, a "stream" meg azokra az osztályokra és változókra, amik segítségével az adatok ki/be "folynak" a programba/programból. Többek között ebben a könyvtárban található az `std::cout` változó is.
+
