@@ -5,11 +5,8 @@
 ### Linkek, kezdés
 
 Email címem: dkszelethus <kukac> gmail <pont> com
-  
 Canvas oldal: https://canvas.elte.hu/courses/26083
-  
 A tárgy honlapja: https://gsd.web.elte.hu/cpp-en/
-  
 Az IKs tárgyhoz jegyzet (sok átfedéssel ezzel a kurzussal): https://people.inf.elte.hu/szelethus/LaTeX/cpp/cpp_book/cpp_book.pdf
 
 Az órák hétfőnként 12:00tól 13:30ig tartanak.
@@ -104,8 +101,169 @@ int main() {
 ```
 
 ![image](https://user-images.githubusercontent.com/23276031/154488639-1d1236d3-1a6a-4afb-861c-863300e6dc02.png)
-  
-### Linux, Mac gépeken
-  
-1. Nyiss meg egy terminált
-2. A 6. ponttal kezdve folytassátok a fenti lépéseket.
+
+## Röviden a hello world programról
+
+Amikor egy új programozási nyelvről tanulunk, az első feladat gyakran az, hogy kiírjuk valamilyen felületre a "Hello World" szöveget. Ezt C++ban az előbb látott kóddal tehetjük meg:
+
+```lang=c++
+#include <iostream>
+
+int main() {
+  std::cout << "Hello world!";
+}
+```
+
+### A preprocesszor működése
+
+A "Hello World" program első sora a `#inclued <iostream>`. Azok a sorok, melyek `#` jellel kezdődnek, a preprocesszornak szólnak, így a `#include` is egy preprocesszor parancs, vagy un. preprocesszor direktíva.
+
+A fordítás (amikor a fordítóprogram a kódunkból a processzor számára érthető, futtatható állományt hoz létre) több lépésből áll, melyből a legelső a preprocesszor futtatása. A preprocesszálás, vagy "előszerkesztés" a fordítási folyamat első lépése. A preprocsszor egy nyelvfüggetlen, primitív eszköz, emiatt sok veszélyt hordoz magában.
+
+#### Preprocesszor makrók
+
+A preprocesszor segítségével lehet szöveget behelyettesíteni makrók segítségével. Makrót a `#define` direktívával tudunk definiálni, melynek az első argumentuma a makró neve, az összes többi pedig az, amire a makrót cserélni kell.
+
+Legyen a `preproc.cpp` tartalma:
+```lang=c++
+#define ALMA 6
+
+ALMA ALMA ALMA
+```
+
+Futtassuk a fordítóprogramot, de kérjük meg az `-E` kapcsoló segítéségével, hogy csak a preprocesszálást végezze el:
+
+```lang=bash
+$ g++ -E preproc.cpp
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154660847-81749d14-014b-46db-9940-b3d2d8d37ba9.png)
+
+A kimenet utolsó sora a lényeg (a többi a preprocesszor működésével kapcsolatos információkat tárolnak, ezekre szükség lehet hogy a fordító pontosabb hibaüzeneteket tudjon adni, de most hagyjuk őekt figyelmen kívül), melyben feltűnhet, hogy a 3 darab `ALMA` szót a preprocesszor `6`-ra cserélte. Nem szükséges egyébként a `#define` első argumentumán kívül mást megadni, ebben az esetben a makrót egy üres szövegre ("semmire") cseréljük.
+
+#### Elágazások a preprocesszorban
+
+Elágazást is hozhatunk létre a preprocesszorban, függően attól, hogy egy makró definiálva van-e, tegyük ezt a `preproc2.cpp` fájlba:
+
+```lang=c++
+#define KORTE
+
+#ifdef KORTE
+Hello world!
+#endif
+```
+
+A fenti kódban definiálunk egy új makrót, `KORTE`-t. Utána, amennyiben a `KORTE` makró definiálva van, akkor az elágazást eleje (`#ifdef KORTE`) és vége (`#endif`) közötti szöveget a preprocesszor beilleszti a fájlba, különben nem:
+
+```lang=bash
+$ g++ -E preproc2.cpp
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154663313-89c923c6-2afa-473f-9a88-41725f648e44.png)
+
+Ha nincs definiálva a makró, akkor a preprocesszor direktívák álltal közrefogott szöveg nem kerül beillesztésre:
+
+
+```lang=c++
+#ifdef KORTE
+Hello world!
+#endif
+```
+
+```lang=bash
+$ g++ -E preproc2.cpp
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154663595-c35a0914-c32f-4332-8f85-14e57eac6324.png)
+
+Az elágazás eddig azt a gondolatot valósította meg, hogy "Ha ez a makró definiálva volt, akkor kerüljön ez a szövegrész beillesztésre". Van lehetőség ennek a negáltjára is, az `#ifndef` direktíva segítségével, ennek segítségével akkor lesz beillesztve egy szöveg, ha **nem** volt a makró definiálva.
+
+```lang=c++
+#ifndef KORTE
+Hello world!
+#endif
+```
+
+```lang=bash
+$ g++ -E preproc2.cpp
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154663313-89c923c6-2afa-473f-9a88-41725f648e44.png)
+
+Ezek segítségével kifejezhetjük azt is, hogy "Ha ez a makró definiálva volt, akkor kerüljön ez a szövegrész beillesztésre, különben kerüljön inkább ez". Kerüljön ez a `preproc_else.cpp` fájlba:
+
+```lang=c++
+#ifdef KORTE
+KORTE definiálva!
+#endif
+
+#ifndef KORTE
+KORTE nincs definiálva!
+#endif
+```
+
+```lang=bash
+$ g++ -E preproc_else.cpp
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154665214-fb945187-2d5e-48ca-a5ff-8c83e73bb489.png)
+
+Ezt lerövödíthetjük az `#else` direktíva segítségével. Az `#else` és az `#endif` direktívák álltal közrefogott szöveg akkor kerül beillesztésre, ha az `#ifdef` vagy `#ifndef` (vagy a jelenlegi jegyzetben nem taglalt `#if`) direktívák feltétele nem teljesült.
+
+```lang=c++
+#ifdef KORTE
+KORTE definiálva!
+#else
+KORTE nincs definiálva!
+#endif
+```
+
+```lang=bash
+$ g++ -E preproc_else.cpp
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154665214-fb945187-2d5e-48ca-a5ff-8c83e73bb489.png)
+
+Ha definiáljuk a KORTE-t, akkor meglepetés érhet minket, hisz csak annyit látunk az utolsó sorban, hogy ` definiálva!`. Ennek az oka az, hogy a `KORTE` makró definiálva volt, így behelyettesítésre került (a helyére került egy üres szöveg).
+
+```lang=c++
+#define KORTE
+
+#ifdef KORTE
+KORTE definiálva!
+#else
+KORTE nincs definiálva!
+#endif
+```
+
+```lang=bash
+$ g++ -E preproc_else.cpp
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154666333-d2e50d02-0e1c-480a-aafc-c203adf6c1a6.png)
+
+A meglevő tudásunkkal kifejezhetjük azt is, hogy "Ha a KORTE makró definiálva volt, akkor kerüljön ez a szövegrész beillesztésre, ha nincs, de az ALMA igen, akkor ez, különben pedig ez". Figyeljünk arra is, hogy behelyettesítés (mint azt az előző példában is láttunk) ne következzen be.
+
+```lang=c++
+#define ALMA
+
+#ifdef KORTE
+Korte definiálva!
+#else
+  #ifdef ALMA
+  Korte nincs definiálva, de Alma igen!
+  #else
+  Se a Korte se az Alma nincs definiálva!
+  #endif
+#endif
+```
+
+```lang=bash
+$ g++ -E preproc_else.cpp
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154668147-c320a2d1-d8e7-419a-9807-9231700ae058.png)
+
+#### Fájl beillesztés a preprocesszorral
+
+Ezzel eljutottunk a `#include` direktíváig.
