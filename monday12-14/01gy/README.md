@@ -451,26 +451,115 @@ int main() {
 
 Az első gyakorlaton nem mentünk bele még ezekbe a fogalmakba, így az itt leírtak csak a teljesség kedvéért vannak itt, és inkább a második gyakorlat anyagát fogják képezni.
 
-A fundamentális (vagy egyszerű) típusok a legegyszerűbb, mondhatni elemi típusok, mint például az egész vagy lebegőpontos számok, egy karakter, stb. Az összetett típusok pedig ezen ezekből, és más összetett típusokból épülnek fel. A fundamentális típusok között gyakran van konverzióra lehetőség, csakúgy mint a való életben -- egy tört szám nem egész részétől megszabadulhatunk kerekítéssel, vagy alsó/felső egésszel. Az ábécé minden betűjéhez rendelhetünk egy számot (ilyen hozzárendelés az ASCII táblázat, https://www.asciitable.com/), így mondhatjuk azt is hogy `'a'` karaktert átkonvertálhatjuk 97-té.
+A fundamentális (vagy egyszerű, _fundamental_) típusok a legegyszerűbb, mondhatni elemi típusok, mint például az egész vagy lebegőpontos számok, egy karakter, stb. Az összetett típusok pedig ezen ezekből, és más összetett (_compound_) típusokból épülnek fel. A fundamentális típusok között gyakran van konverzióra lehetőség, csakúgy mint a való életben -- egy tört szám nem egész részétől megszabadulhatunk kerekítéssel, vagy alsó/felső egésszel. Az ábécé minden betűjéhez rendelhetünk egy számot (ilyen hozzárendelés az ASCII táblázat, https://www.asciitable.com/), így mondhatjuk azt is hogy `'a'` karaktert átkonvertálhatjuk 97-té.
 
-Egész számítpus a `short int`, az `int`, `long int` és a `long long int`, melyek különböző méretű számok tudnak eltárolni, nyilván úgy, hogy kisebb vagy nagyobb memóriaterületet igényelnek. A `float`, `long double` és a `double` lebegőpontos számok
+#### Szám típusok
 
-A `char` egy karakternek a típusa, melynek értékeit aposztrófok közé tesszük (`'a'`, `'b'`, `'c'`, ...). Vannak olyan karakterek is, melyek a programkódban több karakterből állnak (csakúgy, mint a magyarban a 'cs', 'ny', 'dzs', stb!). Ilyen karakter az `'\n'`, mely a sörtörés-t jelöli (newline), a `'\t'`, mely a tabulátor karakter, a  `'\0'`, mellyel nemsoká találkozunk.
+Egész számítpus a `short int`, az `int`, `long int` és a `long long int`, melyek különböző méretű számok tudnak eltárolni, nyilván úgy, hogy kisebb vagy nagyobb memóriaterületet igényelnek. A `float`, `long double` és a `double` lebegőpontos számok.
 
 Nem csak méret, de előjelesség szerint is lehet meghatározni egy ilyen elemi típust, például `signed int` és `unsigned int`. Az, hogy egy szám negatív vagy egész-e, szintén eltárolandó információ (legalább egy bitnyi), így előjel nélküli számok a pozitív tartományban kétszer akkor számot is tudnak tárolni. Továbbá, ha egy előjeles szám típusú változóba túl nagy számot akarnánk eltárolni (ezt hívjuk _túlcsordulásnak_), az egy _nem definiált viselkedés_ (erről még ebben a gyakorlatban bővebben), míg az előjeles változóknál a "túlcsorduló rész" lesz a változó értéke.
+
+#### Karakterek, betekintés a karakterláncokba
+
+A `char` egy karakternek a típusa, melynek értékeit aposztrófok közé tesszük (`'a'`, `'b'`, `'c'`, ...). Vannak olyan karakterek is, melyek a programkódban több karakterből állnak (csakúgy, mint a magyarban a 'cs', 'ny', 'dzs', stb!). Ilyen karakter az `'\n'`, mely a sörtörés-t jelöli (newline), a `'\t'`, mely a tabulátor karakter, a  `'\0'`, mellyel nemsoká találkozunk.
 
 A `"Hello World!"` nem egy karakter (nem is aposztrófok, hanem idézőjelek közé tesszük!), hanem karakterek láncolata:
 
 `['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\0']`.
 
-A karakterlánc kifejezés helyett a köznyelvben a _string_ kifejezést szokás használni. 
+A karakterlánc kifejezés helyett a köznyelvben a _string_ kifejezést szokás használni. A sorozat végén látható `'\0'` a string végét jelző karakter, így lesz a `"Hello World!"` hossza 13 karakter. Egy ilyen string-et elátolhatunk egy karakter tömbbe (`char[]`), hivatkozhatunk rá egy konstansra mutató karakter mutatóval (`const char *`) , ezek viszont mint túlmutatnak a mostani jegyzeten, valamint mind régi technikák melyet C-ben voltunk csak kötelesek használni. C++ban az `std::string` típusú változókba tárolunk stringeket, illetve szokás használni a nyelv 2017-es verziójában (C++17) az `std::string_view` típust.
 
+```lang=c++
+int main() {
+  std::string str1 = "Hello World!";
+  std::string str2("Hello World!"); // Mi szempontunkból most ugyanaz mint a fenti.
+}
+```
 
-<!---
-### Függvények a C++ban
+Az `std::string` (valamint a futólag említett `std::string_view`, `char[]` és `const char *`) összetett típus(ok), a többi említett típus fundamentális.
+
+### Az std::cout
+
+Az `std::cout` szintén egy változó (ráadásul _globális_ változó, melyről később tanulunk!), melynek típusa `std::ostream`. Az `std::` része a névnek utal arra, ez a változó a standard _névtérből_ származik. Ehhez a változóhoz csak akkor férünk hozzá, ha be van includeolva az `<iostream>` könyvtár. Erre a változóra úgy is szokás hivatkozni hogy _folyam változó_ (_stream object_), és a "character output" rövidítése.
+
+A "hello world" programban már ismert sor jelentése az, hogy a standard character outputra kerüljön kiírásra a `"Hello World!\n"` szöveg. A standard character output a legtöbb rendszeren a terminálra hivatkozik.
+
+```lang=c++
+std::cout << "Hello World!\n";
+```
+
+### Függvények
+
+Amikor egy programozásbeli függvényről beszélünk, segíthet ha egy matematikai függvényként gondolunk rájuk. Példaképp gondoljunk egy függvényre, ami kettővel megszorozza egy számot:
+
+![image](https://user-images.githubusercontent.com/23276031/154852256-14c2d4da-c09e-4b1e-b414-6f39251828e8.png)
+![image](https://user-images.githubusercontent.com/23276031/154852347-e6ca00d0-f98c-402a-abaa-b0d219a69db2.png)
+
+Ez a függvény egy bementi számhoz (_paraméterhez_) rendel egy másik számot (_visszatérési érték_), azaz a valós számok halmazáról a valós számok halmazára képez.
+
+#### Függvények Pythonban
+
+Pythonban ha meg akarunk írni egy függvényt amely ezt teljesíti, először a `def` kulcsszót kell írnunk, majd a függvény nevét (legyen most `multiplyByTwo`), zárójelek között vesszővel elválasztva a _paraméterek_ neveir (ebben az esetben csak 1 paraméter van, legyen a neve `arg`). Ezt a sort egy kettőspont zárja, és a rákövetkező, legalább egy space-el (vagy tabbal) beljebb húzott sorokban pedig a függvény _definíciója_ található:
+
+```lang=python
+def multiplyByTwo(arg):
+  return arg * 2
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154852454-e45f6377-7a04-4800-b323-2a25b4cb7eb2.png)
+
+A függvény definíciója ebben az esetben egyszerű, matematikai tekintetben meghatározzuk, hogy a függvény a bemeneti számhoz milyen számra képezze. Ezt úgy tudjuk megtenni, hogy a kapott szám kétszeresével térünk vissza. A függvényt így lehet meghívni:
+
+`test.py`:
+```lang=python
+def multiplyByTwo(arg):
+  return arg * 2
+
+result = multiplyByTwo(5)
+print(result)
+```
+
+```lang=bash
+python test.py
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154854047-e98dff6b-5ec2-4658-8461-55a11bc4240d.png)
+
+#### Függvények C++ban
+
+Változóknál szemben a Pythonnal, C++ban meg kell adni a típust is. A függvényeknél is igaz ez -- mivel a függvénynek van egy visszatérési értéke, így ennek a visszatérési értéknek is meg kell adni a típusát. Ez a függvény definíciónaz első szava lesz, utána következik a függvény neve. A paramétereket hasonlóan zárójelek között vesszővel elválasztva kell felsorolnunk, de itt is ügyelnünk kell arra, hogy a paraméterek típusát megadjuk.
+
+```lang=c++
+double multiplyByTwo(double arg) {
+  return arg * 2;
+}
+```
+
+A függvény definíciója nem a legalább egy space-el beljebb húzott sorok fogják jelenteni, hanem a két kapcsos zárójel között lévő rész. A függvényt így tudjuk meghívni:
+
+`function.cpp`:
+```lang=c++
+#include <iostream>
+
+double multiplyByTwo(double arg) {
+  return arg * 2;
+}
+
+int main() {
+  double result = multiplyByTwo(5);
+  std::cout << result << '\n';
+}
+```
+
+```lang=bash
+g++ function.cpp
+```
+
+![image](https://user-images.githubusercontent.com/23276031/154854489-a29b285f-a3b9-4788-861e-ed187c91323c.png)
 
 
 #### A `main` függvény
 
+A pythonos kódpéldákban nem használtam semmilyen `main` függvényt, miért van rá szükség C++ban? Mi az a `main` függvény egyáltalán?
+
 C++ban, a lefordított program végrehajtása a `main` függvény első sorával kezdődik, és annak az utolsó sorával fejeződik be (ez nem _teljesen_ igaz, hisz a legelső lépés a globálsi változók inicializációja és a `main` függvény argumentumainak kiértékelése, de ezekről később beszélünk, így első lépésként állapodjunk meg ebben a féligazságban). 
-->
