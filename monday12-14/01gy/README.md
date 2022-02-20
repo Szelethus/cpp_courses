@@ -398,6 +398,55 @@ A programunkban ez a változó a számítógép memóriájában lesz kis szelet.
 counter = 0
 ```
 
+Ebben a kontextusban az `=` nem az a matematikai értelemben vett egynlőség jele, hanem ez az un. _értékadó operátor_, a `counter` változónak a 0-t adjuk értékül, a `counter` értéke 0 lesz. A változót pythonban így lehet manipulálni (az értékét változtatni):
+
+```lang=python
+counter = counter + 1
+counter = counter - 1
+```
+
+Szintaktikailag az értékadás formátuma (azaz hogy a változó értékadása a kódban hogyan néz ki) ez:
+
+```
+<változó név> = <érték>
+```
+
+A program futása közben egy adott változóhoz (pl. itt a `counter`) tartozó memória szelet akkor kerül lefoglalásra, amikor egy először kap értéket, a későbbi értékadások pedig ezt a memóriaterületet fogják módosítani. Az első értékadás és a későbbi értékadások között szintaktikus különbség nincs.
+
+C++ban a változó létrehozása és annak manipulációja szétválik. A létrehozáskor meg kell adjuk a változó típusát. Amikor megmondjuk a fordítónak egy változó nevét és annak a típusát, azt a változó _definíciójának_ nevezzük. Amikor egy változó definícióban egyből _kezdőértéket_ is adunk egy változónak, azt a változó _inicializációjának_ hívjuk (azaz ez _NEM_ értékadás!). Később az `=` segítségével a változó értékének a változtatása lesz az _értékadás_.
+
+```lang=c++
+int main() {
+  int i = 0; // Változó definíció és inicializáció.
+}
+```
+
+```lang=c++
+int main() {
+  int i; // Változó definíció.
+  i = i + 1; // Értékadás.
+}
+```
+
+Pythonban ugyanaz a változó a program végrehajtásának különböző pontjain különböző _típusú_ adatokat is tárolhat. Lehet egész szám típusú, lebegőpontos ("tört) szám típusú, vagy szöveges típusú is akár.
+
+```lang=python
+var = 1
+var = 5.7
+var = "Hello world!\n"
+```
+
+Amikor egy nyelvben a program futása közben derül ki, hogy egy változó által tárolt adat típusa, vagy másképp mondva a _változó típusa_ micsoda, akkor azt mondjuk, hogy az egy dinamikusan típusozott nyelv. A C++ nem ilyen, ott már fordítási időben deklarálnunk kell hogy a változó típusa mi lesz, és a program végrehajtása folyamán ez a típus nem is változhat. Ez alól kivételt fog képezni majd a polimorfizmus, melyről egy későbbi gyakorlaton fogunk beszélni, de amikor azt mondjuk, hogy egy nyelv _erősen_ statikusan típusos, akkor gyakran arra gondolunk, hogy az ilyen kivételek száma nem túl nagy.
+
+```lang=c++
+int main() {
+  int = 0;
+  i = 5.7; // Az 5.7 átkonvertálódik 5-re, így az i típusa nem változik, mégha
+           // pontatlansággal is jár. Konverzióról még beszélünk bővebben.
+  // i = "Hello world!\n";
+}
+```
+
 
 <!---
 ### Függvények a C++ban
