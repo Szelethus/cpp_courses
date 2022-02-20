@@ -447,6 +447,24 @@ int main() {
 }
 ```
 
+### Fundamentális és összetett típusok
+
+Az első gyakorlaton nem mentünk bele még ezekbe a fogalmakba, így az itt leírtak csak a teljesség kedvéért vannak itt, és inkább a második gyakorlat anyagát fogják képezni.
+
+A fundamentális (vagy egyszerű) típusok a legegyszerűbb, mondhatni elemi típusok, mint például az egész vagy lebegőpontos számok, egy karakter, stb. Az összetett típusok pedig ezen ezekből, és más összetett típusokból épülnek fel. A fundamentális típusok között gyakran van konverzióra lehetőség, csakúgy mint a való életben -- egy tört szám nem egész részétől megszabadulhatunk kerekítéssel, vagy alsó/felső egésszel. Az ábécé minden betűjéhez rendelhetünk egy számot (ilyen hozzárendelés az ASCII táblázat, https://www.asciitable.com/), így mondhatjuk azt is hogy `'a'` karaktert átkonvertálhatjuk 97-té.
+
+Egész számítpus a `short int`, az `int`, `long int` és a `long long int`, melyek különböző méretű számok tudnak eltárolni, nyilván úgy, hogy kisebb vagy nagyobb memóriaterületet igényelnek. A `float`, `long double` és a `double` lebegőpontos számok
+
+A `char` egy karakternek a típusa, melynek értékeit aposztrófok közé tesszük (`'a'`, `'b'`, `'c'`, ...). Vannak olyan karakterek is, melyek a programkódban több karakterből állnak (csakúgy, mint a magyarban a 'cs', 'ny', 'dzs', stb!). Ilyen karakter az `'\n'`, mely a sörtörés-t jelöli (newline), a `'\t'`, mely a tabulátor karakter, a  `'\0'`, mellyel nemsoká találkozunk.
+
+Nem csak méret, de előjelesség szerint is lehet meghatározni egy ilyen elemi típust, például `signed int` és `unsigned int`. Az, hogy egy szám negatív vagy egész-e, szintén eltárolandó információ (legalább egy bitnyi), így előjel nélküli számok a pozitív tartományban kétszer akkor számot is tudnak tárolni. Továbbá, ha egy előjeles szám típusú változóba túl nagy számot akarnánk eltárolni (ezt hívjuk _túlcsordulásnak_), az egy _nem definiált viselkedés_ (erről még ebben a gyakorlatban bővebben), míg az előjeles változóknál a "túlcsorduló rész" lesz a változó értéke.
+
+A `"Hello World!"` nem egy karakter (nem is aposztrófok, hanem idézőjelek közé tesszük!), hanem karakterek láncolata:
+
+`['H', 'e', 'l', 'l', 'o', ' ', 'W', 'o', 'r', 'l', 'd', '!', '\0']`.
+
+A karakterlánc kifejezés helyett a köznyelvben a _string_ kifejezést szokás használni. 
+
 
 <!---
 ### Függvények a C++ban
