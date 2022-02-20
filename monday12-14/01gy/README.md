@@ -87,6 +87,7 @@ Többek között a fenti okokból a C++ több nem intuitívnak tűnő megoldáso
 
 int main() {
   std::cout << "Hello world!";
+  return 0;
 }
 ```
 
@@ -102,7 +103,7 @@ int main() {
 
 ![image](https://user-images.githubusercontent.com/23276031/154488639-1d1236d3-1a6a-4afb-861c-863300e6dc02.png)
 
-## Röviden a hello world programról
+## A hello world program
 
 Amikor egy új programozási nyelvről tanulunk, az első feladat gyakran az, hogy kiírjuk valamilyen felületre a "Hello World" szöveget. Ezt C++ban az előbb látott kóddal tehetjük meg:
 
@@ -111,6 +112,7 @@ Amikor egy új programozási nyelvről tanulunk, az első feladat gyakran az, ho
 
 int main() {
   std::cout << "Hello world!";
+  return 0;
 }
 ```
 
@@ -418,6 +420,7 @@ C++ban a változó létrehozása és annak manipulációja szétválik. A létre
 ```lang=c++
 int main() {
   int i = 0; // Változó definíció és inicializáció.
+  return 0;
 }
 ```
 
@@ -425,6 +428,7 @@ int main() {
 int main() {
   int i; // Változó definíció.
   i = i + 1; // Értékadás.
+  return 0;
 }
 ```
 
@@ -444,6 +448,7 @@ int main() {
   i = 5.7; // Az 5.7 átkonvertálódik 5-re, így az i típusa nem változik, mégha
            // pontatlansággal is jár. Konverzióról még beszélünk bővebben.
   // i = "Hello world!\n";
+  return 0;
 }
 ```
 
@@ -473,6 +478,7 @@ A karakterlánc kifejezés helyett a köznyelvben a _string_ kifejezést szokás
 int main() {
   std::string str1 = "Hello World!";
   std::string str2("Hello World!"); // Mi szempontunkból most ugyanaz mint a fenti.
+  return 0;
 }
 ```
 
@@ -548,6 +554,7 @@ double multiplyByTwo(double arg) {
 int main() {
   double result = multiplyByTwo(5);
   std::cout << result << '\n';
+  return 0;
 }
 ```
 
@@ -562,4 +569,22 @@ g++ function.cpp
 
 A pythonos kódpéldákban nem használtam semmilyen `main` függvényt, miért van rá szükség C++ban? Mi az a `main` függvény egyáltalán?
 
-C++ban, a lefordított program végrehajtása a `main` függvény első sorával kezdődik, és annak az utolsó sorával fejeződik be (ez nem _teljesen_ igaz, hisz a legelső lépés a globálsi változók inicializációja és a `main` függvény argumentumainak kiértékelése, de ezekről később beszélünk, így első lépésként állapodjunk meg ebben a féligazságban). 
+C++ban, a lefordított program végrehajtása a `main` függvény első sorával kezdődik, és annak az utolsó sorával fejeződik be (ez nem _teljesen_ igaz, hisz a legelső lépés a globális változók inicializációja és a `main` függvény argumentumainak kiértékelése, de ezekről később beszélünk, így első lépésként állapodjunk meg ebben a féligazságban). Ezért kapott különös figyelmet a `main`! Pythonban az interpreter a python kódot sorról sorra hajtja végre, így ott egy ilyen függvény nem olyan fontos.
+
+Feltűnhet, hogy a `main` függvénynek van visszatérési értke. Ez konkrétan az egész programunknak a visszatérési értéke. Ezt arra szokás felhasználni, hogy jelezzük, hogy a program futása sikeres volt-e. Konvenció szerint, ha a program futása sikeres volt, 0-val terünk vissza. Ellenkezőképp, például ha egy olyan programot írunk, ami egy fájl tartalmát átmásolja egy másik fájlba, de a bemeneti fájl nem létezik, visszatérhetünk 0-tól különböző értékkel. Unix alapú rendszereken a visszatérési értéket le is tudjuk kérdezni viszonylag könnyedén a `?` változó kiíratásával (ezt nem kell tudni, csak érdekességképp):
+
+![image](https://user-images.githubusercontent.com/23276031/154855204-e85de372-b741-4b90-817b-5446307e783c.png)
+
+Miután az alapértelmezett visszatérési érték 0, ezért a `main` függvényben kivételesen elhagyható a `return 0;` sor, ebben az esetben a fordító implicit módon generálja nekünk oda.
+
+```lang=c++
+#include <iostream>
+
+int main() {
+  std::cout << "Hello world!";
+}
+```
+
+## Jól definiált, nem specifikált és nem definiált viselkedések
+
+Erről bővebben a https://people.inf.elte.hu/szelethus/LaTeX/cpp/cpp_book/cpp_book.pdf jegyzetben lehet olvasni a 4. szekcióban.
