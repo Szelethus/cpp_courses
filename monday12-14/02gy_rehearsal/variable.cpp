@@ -3,6 +3,5 @@
 int main() {
   double d;
   int i;
-
-  std::cout << i << '\n';
+  std::cout << i <<  '\n';
 }

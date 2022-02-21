@@ -2,49 +2,64 @@
 
 int main() {
   int age;
-  char startLetter;
-
-  std::cout << "Please give me your age: ";
+  std::cout << "Please submit your age: ";
   std::cin >> age;
 
-  std::cout << "Please give me your name: ";
-  std::cin >> startLetter;
+  char firstLetter;
+  std::cout << "Please submit your name's first letter: ";
+  std::cin >> firstLetter;
 
-  std::cout << "name: " << startLetter << " age: " << age << '\n';
+  std::cout << "Your age: " << age << '\n';
+  std::cout << "Your name's first letter: " << firstLetter << '\n';
 
-  // if (startLetter == 'a') {
-  //   std::cout << "a a kezdőbetű";
-  // } else {
-  //   std::cout << "a nem a kezdőbetű";
-  // }
+  switch (firstLetter) {
+    case 'a': case 'e': case 'u': case 'i': case 'o':
+      std::cout << "Magánhangzó!\n";
+      break;
+    default:
+      std::cout << "Mássalhangzó!\n";
+  };
 
-  //if (startLetter == 'a') {
-  //  std::cout << "magánhangzó!";
-  //} else if (startLetter == 'e') {
-  //  std::cout << "magánhangzó!";
-  //} else if (startLetter == 'i') {
-  //  std::cout << "magánhangzó!";
-  //} else if (startLetter == 'u') {
-  //  std::cout << "magánhangzó!";
-  //} else if (startLetter == 'o') {
-  //  std::cout << "magánhangzó!";
+  //switch (firstLetter) {
+  //  case 'a':
+  //    std::cout << "Magánhangzó!\n";
+  //    break;
+  //  case 'e':
+  //    std::cout << "Magánhangzó!\n";
+  //    break;
+  //  case 'u':
+  //    std::cout << "Magánhangzó!\n";
+  //    break;
+  //  case 'i':
+  //    std::cout << "Magánhangzó!\n";
+  //    break;
+  //  case 'o':
+  //    std::cout << "Magánhangzó!\n";
+  //    break;
+  //  default:
+  //    std::cout << "Mássalhangzó!\n";
+  //};
+
+  // && <--- 'és' operátor
+  // || <--- 'vagy' operátor
+  //if (firstLetter == 'a' || firstLetter == 'e' || firstLetter == 'u' ||
+  //    firstLetter == 'i' || firstLetter == 'o') {
+  //  std::cout << "Magánhangzó!\n";
   //} else {
-  //  std::cout << "mássalhangzó!";
+  //  std::cout << "Mássalhangzó!\n";
   //}
 
-  if (startLetter == 'a') {
-    std::cout << "magánhangzó!";
-  } else if (startLetter == 'e') {
-    std::cout << "magánhangzó!";
-  } else if (startLetter == 'i') {
-    std::cout << "magánhangzó!";
-  } else if (startLetter == 'u') {
-    std::cout << "magánhangzó!";
-  } else if (startLetter == 'o') {
-    std::cout << "magánhangzó!";
-  } else {
-    std::cout << "mássalhangzó!";
-  }
-
-  std::cout << '\n';
+  // if (firstLetter == 'a') {
+  //   std::cout << "Magánhangzó!\n";
+  // } else if (firstLetter == 'e') {
+  //   std::cout << "Magánhangzó!\n";
+  // } else if (firstLetter == 'u') {
+  //   std::cout << "Magánhangzó!\n";
+  // } else if (firstLetter == 'i') {
+  //   std::cout << "Magánhangzó!\n";
+  // } else if (firstLetter == 'o') {
+  //   std::cout << "Magánhangzó!\n";
+  // } else {
+  //   std::cout << "Mássalhangzó!\n";
+  // }
 }
