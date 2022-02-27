@@ -15,29 +15,11 @@ char encryptLetter(char c) {
   return result;
 }
 
-bool isVowel(char c) {
-  char vowels[] = {'a', 'e', 'i', 'o', 'u'};
-
-  bool result = false;
-  for (int i = 0; i < sizeof(vowels); ++i)
-    if (c == vowels[i])
-      result = true;
-
-  return result;
-}
-
 int main() {
   std::string input;
 
   std::cout << "Please provide a word (only vowels): ";
   std::cin >> input;
-
-  for (int i = 0; i < input.size(); ++i) {
-    if (!isVowel(input[i])) {
-      std::cout << "Input word has a non-vowel character in it!\n";
-      return 1;
-    }
-  }
 
   std::string output;
 
