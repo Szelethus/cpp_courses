@@ -12,19 +12,19 @@ int main() {
 
   int inputSize;
   //std::cout << "Please provide the number of words to encode: ";
-  ifs >> inputSize;
+  std::cin >> inputSize;
+  std::cin.ignore();
 
-  if (ifs.fail()) {
+  if (std::cin.fail()) {
     std::cout << "NaN provided for number of words!\n";
     return 1;
   }
 
   std::string input;
-  //std::cout << "Please provide your words to encode: ";
 
   for (int i = 0; i < inputSize; ++i) {
     std::string currentWord;
-    ifs >> currentWord;
+    std::getline(std::cin, currentWord);
     input += currentWord;
   }
 
