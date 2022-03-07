@@ -24,8 +24,27 @@ int main() {
 }
 
 char encode(char c) {
-  char from[] = {'a', 'e', 'i', 'o', 'u'};
-  char to  [] = {'u', 'a', 'e', 'i', 'o'};
+  std::string from;
+  std::ifstream fromfs("from.txt");
+  if (fromfs.fail()) {
+    std::cout << "Failed to open 'from.txt'\n";
+    return 'a';
+  }
+
+  fromfs >> from;
+
+  std::string to;
+  std::ifstream tofs("to.txt");
+  if (tofs.fail()) {
+    std::cout << "Failed to open 'to.txt'\n";
+    return 'a';
+  }
+
+  tofs >> to;
+
+  if (from.size() != to.size()) {
+    std::cout << "from.txt and to.txt must have the same number of characters!\n";
+  }
 
   char output = c;
 
