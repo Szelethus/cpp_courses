@@ -1,7 +1,7 @@
-#include <iostream>
-#include <vector>
 #include <fstream>
+#include <iostream>
 #include <math.h>
+#include <vector>
 
 void printPolynom(std::vector<int> polynom) {
   for (int i = 0; i < polynom.size(); ++i) {
@@ -11,6 +11,21 @@ void printPolynom(std::vector<int> polynom) {
     }
   }
   std::cout << '\n';
+}
+
+std::vector<std::vector<int>> readMatrix(std::istream &in) {
+  std::vector<std::vector<int>> matrix;
+
+  int input;
+  std::vector<int> vec;
+  for (/*amennyi sor van*/) {
+    while (in >> input) {
+      vec.push_back(input);
+    }
+    matrix.push_back(vec);
+  }
+
+  return matrix;
 }
 
 std::vector<int> readPolynom(std::istream &in) {
@@ -35,8 +50,7 @@ int valueAt(std::vector<int> polynom, int x) {
 
 int main(int argc, char *argv[]) {
   if (argc != 2) {
-    std::cout << "Please provide a filename: "
-              << argv[0] << " <filename>\n";
+    std::cout << "Please provide a filename: " << argv[0] << " <filename>\n";
     return 1;
   }
 
@@ -53,7 +67,5 @@ int main(int argc, char *argv[]) {
 
   int x = 5;
 
-  std::cout << "polynom at x=" << x << " is: "
-            << valueAt(polynom, x);
-
+  std::cout << "polynom at x=" << x << " is: " << valueAt(polynom, x);
 }
