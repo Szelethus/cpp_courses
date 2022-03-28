@@ -12,7 +12,10 @@
 ### osztály
 #### konstruktor
 #### inicializációs lista
+#### Több konstruktor
 #### default paraméter érték
+#### class, private/public
 #### getter/setter
+##### Pozitv komplex szám
 #### konstansság
 #### fájlokra szedés
