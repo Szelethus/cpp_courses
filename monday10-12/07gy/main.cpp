@@ -1,7 +1,7 @@
 #include <cassert>
 #include <iostream>
-#include "poscomplex.h"
 #include "complex.h"
+#include "poscomplex.h"
 
 int main() {
   Complex c{1, -2};

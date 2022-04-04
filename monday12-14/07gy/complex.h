@@ -13,32 +13,25 @@ public:
   Complex(const PosComplex &ps);
   Complex(double re_, double im_);
 
-  friend std::ostream &operator<<(std::ostream &out, const Complex this_);
+  double getRe() const;
+  double getIm() const;
+
+  void setRe(double re_);
+  void setIm(double im_);
+
+  friend std::ostream &operator<<(std::ostream &out, const Complex c);
   friend Complex operator+(const Complex left, const Complex right);
   friend Complex operator-(const Complex left, const Complex right);
-  friend Complex operator~(const Complex c);
-
+  friend Complex operator++(const Complex c);
+  friend Complex operator++(const Complex c, int);
   friend bool operator==(const Complex left, const Complex right);
-
-  Complex operator++() {
-    ++re;
-    ++im;
-    return *this;
-  }
-
-  Complex operator++(int) {
-    Complex tmp = *this;
-    ++re;
-    ++im;
-    return tmp;
-  }
 };
 
-std::ostream &operator<<(std::ostream &out, const Complex this_);
+std::ostream &operator<<(std::ostream &out, const Complex c);
 Complex operator+(const Complex left, const Complex right);
 Complex operator-(const Complex left, const Complex right);
-Complex operator~(const Complex c);
-
+Complex operator++(const Complex c);
+Complex operator++(const Complex c, int);
 bool operator==(const Complex left, const Complex right);
 
 #endif

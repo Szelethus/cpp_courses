@@ -11,11 +11,10 @@ double PosComplex::getRe() const { return re; }
 double PosComplex::getIm() const { return im; }
 
 void PosComplex::setRe(double re_) {
-  assert(re_ > 0 && "Negative number given to setRe!");
+  assert(re_ > 0 && "Can't set the real component to negative!");
   re = re_;
 }
-
 void PosComplex::setIm(double im_) {
-  assert(im_ > 0 && "Negative number given to setRe!");
+  assert(im_ > 0 && "Can't set the im component to negative!");
   im = im_;
 }
