@@ -22,7 +22,7 @@ public:
   friend std::ostream &operator<<(std::ostream &out, const Complex c);
   friend Complex operator+(const Complex left, const Complex right);
   friend Complex operator-(const Complex left, const Complex right);
-  friend Complex operator++(const Complex c);
+  friend Complex &operator++(const Complex c);
   friend Complex operator++(const Complex c, int);
   friend bool operator==(const Complex left, const Complex right);
 };
@@ -30,7 +30,7 @@ public:
 std::ostream &operator<<(std::ostream &out, const Complex c);
 Complex operator+(const Complex left, const Complex right);
 Complex operator-(const Complex left, const Complex right);
-Complex operator++(const Complex c);
+Complex &operator++(const Complex c);
 Complex operator++(const Complex c, int);
 bool operator==(const Complex left, const Complex right);
 

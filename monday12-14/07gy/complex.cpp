@@ -34,7 +34,7 @@ Complex operator++(Complex c, int) {
   return orig;
 }
 
-Complex operator++(Complex c) {
+Complex &operator++(Complex &c) {
   c++;
   return c;
 }
