@@ -20,7 +20,7 @@ public:
 
   friend bool operator==(const Complex left, const Complex right);
 
-  Complex operator++() {
+  Complex &operator++() {
     ++re;
     ++im;
     return *this;
