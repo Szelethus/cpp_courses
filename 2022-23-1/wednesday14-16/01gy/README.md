@@ -7,8 +7,6 @@ A gyakorlaton készül majd felvétel.
 
 A gyakorlaton készült kódokat, illetve a korábbi féléveken készített kódokat ebben a repositoryban lehet elérni.
 
-12:00kor pontban (!) kezdjük a gyakorlatokat.
-
 November 14ei gyakorlatot helyettesíteni fogja valaki.
 
 A tárgyhoz korábban készült egy jegyzet:
@@ -28,3 +26,45 @@ A félév végén röpdolgozatokkal legalább 0-ban kell állni, különben a ha
 A félév végén kiírásira kerül (várhatóan a decemberre csúszott őszi szünetben) egy beadandó feladat, melynek elkészítésére 1 hét áll rendelkezésre. A vizsga előfeltétele hogy ez a beadandó jól működik, és a vizsgán meg kell majd védeni.
 
 Vizsgaidőszakban várható majd online vizsga. A vizsga feladaton túl meg kell védeni a beadandót, és extra kérdéseket kaphat a hallgató az előadás/gyakorlat anyagából. Sikeres vizsga esetén, ha a +/--szal +2-ben vagy +3-ban állnak a feleletjegynél eggyel jobb jegy kerül vizsgajegyként a neptunba.
+
+## Gyakorlat
+
+### Bevezető
+#### Hatékonyság
+#### Resource management
+#### Általánosság
+#### Multiparadigma
+#### C++ szabványok, és annak implementációja (standard könyvtár + forditó)
+
+### Hello World program
+#### #include, tranzitiv lezárt
+#### std névtér
+#### right shift operátor
+#### deklaráció, definíció, ODR
+
+### Fordítás konzolból
+
+### Definiált viselkedés, nem specifikált viselkedés, implementáció által definiált viselkedés
+
+### Fordítás lépései
+
+### Preprocesszor
+#### #define, #undef, #ifndf, #ifdef, #else, #endif
+#### -E -P
+#### #include, rekurzív include, header/include guard
+
+### Linkelés
+#### két c++ fájl, include nélkül majd include-al
+#### -c kapcsoló
+#### nm parancs
+
+### Compiler flagek
+#### -Wall, -Wextra, -Weverything
+#### -O2, -save-temps
+
+### Globális változók
+#### Globális névtér
+#### linking error
+#### problémák
+
+### Inicializációs hibák, global initialization
