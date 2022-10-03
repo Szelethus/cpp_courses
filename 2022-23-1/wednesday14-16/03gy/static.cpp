@@ -2,19 +2,21 @@
 
 static int x;
 
+static void g();
+
 void f() {
   static int x;
-  std::cout << x++ << '\n';
+  x++;
+  std::cout << x << '\n';
 }
 
-void g();
-
-static void g() {
-  std::cout << "static\n";
+namespace {
+int k;
+void fgfg();
 }
 
 int main() {
-  ::g();
+
   f();
   f();
   f();
