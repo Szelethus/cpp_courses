@@ -7,7 +7,7 @@ A gyakorlaton készül majd felvétel.
 
 A gyakorlaton készült kódokat, illetve a korábbi féléveken készített kódokat ebben a repositoryban lehet elérni.
 
-12:00kor pontban (!) kezdjük a gyakorlatokat.
+14:00kor pontban (!) kezdjük a gyakorlatokat.
 
 November 14ei gyakorlatot helyettesíteni fogja valaki.
 
