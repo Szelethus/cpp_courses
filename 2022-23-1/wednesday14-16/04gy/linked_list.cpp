@@ -10,13 +10,22 @@ struct Node {
 class List {
 public:
   Node *head = nullptr;
+
+  List() {} // TODO
 };
+
+void display(List &l) {
+  for (Node *ptr = l.head; ptr != nullptr; ptr = ptr->next) {
+    std::cout << (*ptr).data << '\n';
+  }
+}
 
 void push_back(List &l, int data) {
   Node **ptr = &l.head;
-  while ((*ptr) != nullptr) {
+  while (*ptr != nullptr) {
     ptr = &(*ptr)->next;
   }
+
   *ptr = new Node{data, nullptr};
 }
 
@@ -29,20 +38,13 @@ void free(List &l) {
   }
 }
 
-void print(List &l) {
-  for (Node *ptr = l.head; ptr != nullptr; ptr = ptr->next) {
-    std::cout << (*ptr).data << '\n';
-  }
-}
-
 int main() {
-  List l;
-  l.head = nullptr;
+  List l{};
   push_back(l, 5);
   push_back(l, 6);
   push_back(l, 7);
 
-  print(l);
+  display(l);
 
   free(l);
 }
