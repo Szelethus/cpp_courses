@@ -35,12 +35,6 @@
 
 ## Fejelemes láncolt lista
 ### Törlési sorrend
-### add
-### free
-
-### Design philosophy: Make it easy to use corrently, and hard to use incorrectly
+### add, free, display
+### add "egyszerűsítése"
 ### Konstruktor
-#### default konstruktor
-### Inicializációs lista
-#### Inicializációs sorrend
-

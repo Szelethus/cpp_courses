@@ -1,5 +1,4 @@
-# Első gyakorlat
-## Adminisztratív információk
+# Adminisztratív információk
 
 Elérhető vagyok emailen a dkszelethus <kukac> gmail <pont> com címen, valamint a Teamsen is vagy csoport üzenettel vagy privát üzenettel. Ez előbbit valószínűleg gyorsabban észreveszem. Bátran lehet fordulni hozzám kérdésekkel, kérésekkel, mind a tárgy tematikáját illetően (pl. "Miért ez a sorrendje a konstruktorhívásokank?"), megjegyzéssel (pl. "Szerintem nehezen érthetőek voltak a pointerek, talán jobb lenne ezt több ábrával elmondani mégegyszer"), vagy bármi egyébbel.
 
@@ -17,7 +16,7 @@ Sajnos ez a jegyzet picit idejét múlott, csak félig lett lektorálva, és mé
 
 Akinek ez így nem megfelelő, az ne használja a jegyzetet.
 
-## A tárgy követelményei
+# A tárgy követelményei
 
 A félév folyamán 3 alkalommal lesz egy rövid, 10-15 perces röpdolgozat. Erre mi történelmi okokból "pluszmínusz" néven hivatkozunk. A röpdolgozat 3 értékelésű, azaz vagy +t, vagy 0t, vagy -t lehet elérni rajta. Ez a pluszmínusz jellemzően 3 rövidebb (no persze nem feltélenül könnyebb) kérdésből áll, melyre van pár példa a repository többi mappájában. 
 
