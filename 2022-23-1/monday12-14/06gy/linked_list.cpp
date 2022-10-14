@@ -7,6 +7,26 @@ struct Node {
   Node(int _data, Node *_next) : data(_data), next(_next) {}
 };
 
+class Iterator {
+  Node *ptr;
+
+public:
+  Iterator(Node *ptr) : ptr(ptr) {}
+
+  Iterator operator++() {
+    return Iterator(ptr->next);
+  }
+  int operator*() {
+    return ptr->data;
+  }
+  bool operator==(Iterator other) {
+    return ptr == other.ptr;
+  }
+  bool operator!=(Iterator other) {
+    return !(*this == other);
+  }
+};
+
 class List {
 private:
   Node *head = nullptr;
@@ -64,6 +84,14 @@ public:
       length++;
     }
     return length;
+  }
+
+  Iterator begin() {
+    return Iterator(head);
+  }
+
+  Iterator end() {
+    return nullptr;
   }
 };
 

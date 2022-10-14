@@ -8,7 +8,6 @@ struct Node {
 };
 
 class List {
-private:
   Node *head = nullptr;
 
   void free() {
@@ -23,6 +22,8 @@ private:
 public:
   List() = default;
 
+  ~List() { free(); }
+
   List(const List &other) {
     for (Node *ptr = other.head; ptr != nullptr; ptr = ptr->next) {
       push_back(ptr->data);
@@ -30,8 +31,9 @@ public:
   }
 
   List &operator=(const List &other) {
-    if (this == &other)
+    if (this == &other) {
       return *this;
+    }
 
     free();
     head = nullptr;
@@ -42,41 +44,42 @@ public:
     return *this;
   }
 
-  ~List() { free(); }
-
-  void push_back(int data) {
-    Node **ptr = &head;
-    while ((*ptr) != nullptr) {
-      ptr = &(*ptr)->next;
-    }
-    *ptr = new Node{data, nullptr};
-  }
-
-  void print() {
+  void display() {
     for (Node *ptr = head; ptr != nullptr; ptr = ptr->next) {
       std::cout << (*ptr).data << '\n';
     }
   }
 
+  void push_back(int data) {
+    Node **ptr = &head;
+    while (*ptr != nullptr) {
+      ptr = &(*ptr)->next;
+    }
+
+    *ptr = new Node{data, nullptr};
+  }
+
   int length() {
     int length = 0;
     for (Node *ptr = head; ptr != nullptr; ptr = ptr->next) {
-      length++;
+      length += 1;
     }
     return length;
   }
 };
 
 int main() {
-  List l;
+  List l{};
   l.push_back(5);
   l.push_back(6);
+
   l.push_back(7);
 
-  List l2 = l;
+  List l2(l);
+  l2 = l;
+  l2 = l2;
 
-  l = l2;
-
-
-  l.print();
+  l.display();
+  std::cout << '\n';
+  l2.display();
 }
