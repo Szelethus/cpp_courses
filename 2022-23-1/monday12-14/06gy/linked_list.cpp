@@ -1,5 +1,19 @@
 #include <iostream>
 
+struct Node;
+
+class Iterator {
+public:
+  Node *ptr;
+
+  Iterator(Node *ptr) : ptr(ptr) {}
+
+  Iterator operator++();
+  int operator*();
+  bool operator==(Iterator other) { return ptr == other.ptr; }
+  bool operator!=(Iterator other) { return !(*this == other); }
+};
+
 struct Node {
   int data;
   Node *next;
@@ -7,24 +21,25 @@ struct Node {
   Node(int _data, Node *_next) : data(_data), next(_next) {}
 };
 
-class Iterator {
-  Node *ptr;
+Iterator Iterator::operator++() {
+  ptr = ptr->next;
+  return *this;
+}
+int Iterator::operator*() { return ptr->data; }
 
+class ConstIterator {
 public:
-  Iterator(Node *ptr) : ptr(ptr) {}
+  const Node *ptr;
 
-  Iterator operator++() {
-    return Iterator(ptr->next);
+  ConstIterator(const Node *ptr) : ptr(ptr) {}
+
+  ConstIterator operator++() {
+    ptr = ptr->next;
+    return *this;
   }
-  int operator*() {
-    return ptr->data;
-  }
-  bool operator==(Iterator other) {
-    return ptr == other.ptr;
-  }
-  bool operator!=(Iterator other) {
-    return !(*this == other);
-  }
+  int operator*() { return ptr->data; }
+  bool operator==(ConstIterator other) { return ptr == other.ptr; }
+  bool operator!=(ConstIterator other) { return !(*this == other); }
 };
 
 class List {
@@ -72,12 +87,6 @@ public:
     *ptr = new Node{data, nullptr};
   }
 
-  void print() {
-    for (Node *ptr = head; ptr != nullptr; ptr = ptr->next) {
-      std::cout << (*ptr).data << '\n';
-    }
-  }
-
   int length() {
     int length = 0;
     for (Node *ptr = head; ptr != nullptr; ptr = ptr->next) {
@@ -86,14 +95,20 @@ public:
     return length;
   }
 
-  Iterator begin() {
-    return Iterator(head);
-  }
+  Iterator begin() { return Iterator(head); }
 
-  Iterator end() {
-    return nullptr;
-  }
+  Iterator end() { return nullptr; }
+
+  ConstIterator begin() const { return ConstIterator(head); }
+
+  ConstIterator end() const { return nullptr; }
 };
+
+void print(const List &l) {
+  for (ConstIterator it = l.begin(); it != l.end(); ++it) {
+    std::cout << *it << '\n';
+  }
+}
 
 int main() {
   List l;
@@ -105,6 +120,5 @@ int main() {
 
   l = l2;
 
-
-  l.print();
+  print(l);
 }
