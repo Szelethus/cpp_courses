@@ -1,20 +1,33 @@
-#include <vector>
+#include <iostream>
+#include <string>
 
-template <class T>
-struct X {
-  const static int value = 0;
+struct A {
+  int i;
 };
 
-template <class T>
-struct Y {
-  const static int value = 1;
-};
+template <typename T>
+void swap(T &a, T &b) {
+  T tmp = a;
+  a = b;
+  b = tmp;
+}
 
-template <template <typename, typename> class Templ>
-struct Z {
-  Templ<int, std::allocator<int>> k;
-};
+template <int N = 0>
+void printNumber() {
+  std::cout << N << '\n';
+}
 
 int main() {
-  Z<std::vector> z;
+  int c = 5, d = 8;
+  swap(c, d);
+
+  A a1{0};
+  A a2{1};
+  swap(a1, a2);
+
+  printNumber<100>();
+
+  constexpr int N = 500;
+  printNumber<N>();
 }
+
