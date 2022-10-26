@@ -6,7 +6,15 @@
 // Ha az intervallum üres, térjünk vissza (-1)-el.
 
 int max(Iterator begin, Iterator end) {
-  // ...
+  if (begin == end)
+    return -1;
+
+  int max = *(begin++);
+  for (; begin != end; ++begin) {
+    if (max < *begin)
+      max = *begin;
+  }
+  return max;
 }
 
 // (3) Mely kettő paramétere NEM lehet egy templatenek?
