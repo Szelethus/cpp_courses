@@ -1,105 +1,70 @@
-#ifndef __LINKED_LIST_H__
-#define __LINKED_LIST_H__
+#include "linked_list.h"
+#include <iostream>
 
-#include <iosfwd>
-
-//===-------------------------===//
-// Iterator
-//===-------------------------===//
-
-struct Node;
-
-namespace list_detail {
-// Forward iterator
-class Iterator {
-  Node *ptr;
-
-public:
-  explicit Iterator(Node *_ptr) : ptr(_ptr) {}
-
-  // ++Prefix operátor: ++it;
-  // int i = 0;
-  // (++i) == 1;
-  Iterator operator++();
-
-  bool operator==(Iterator other) { return ptr == other.ptr; }
-  bool operator!=(Iterator other) { return !(*this == other); }
-  int &operator*();
-
-  friend class ConstIterator;
-};
-} // end of namespace list_detail
-
-//===-------------------------===//
-// ConstIterator
-//===-------------------------===//
+std::ostream &operator<<(std::ostream &out, const List &l) {
+  for (List::ConstIterator it = l.begin(); it != l.end(); ++it) {
+    out << *it << '\n';
+  }
+  return out;
+}
 
 namespace list_detail {
-// Forward iterator
-class ConstIterator {
-  const Node *ptr;
+Iterator Iterator::operator++() {
+  ptr = ptr->next;
+  return *this;
+}
+int &Iterator::operator*() { return ptr->data; }
 
-public:
-  explicit ConstIterator(const Node *_ptr) : ptr(_ptr) {}
-  ConstIterator(Iterator it) : ptr(it.ptr) {}
-
-  // Prefix++ operátor: ++it;
-  // int i = 0;
-  // (++i) == 1;
-  // TODO postfix
-  ConstIterator operator++();
-
-  bool operator==(ConstIterator other) { return ptr == other.ptr; }
-  bool operator!=(ConstIterator other) { return !(*this == other); }
-  int operator*();
-};
+ConstIterator ConstIterator::operator++() {
+  ptr = ptr->next;
+  return *this;
+}
+int ConstIterator::operator*() { return ptr->data; }
 } // end of namespace list_detail
 
-//===-------------------------===//
-// Node
-//===-------------------------===//
+int List::counter = 0;
 
-struct Node {
-  int data;
-  Node *next;
+void List::free() {
+  Node *ptr = head;
+  while (ptr != nullptr) {
+    Node *nextPtr = ptr->next;
+    delete ptr;
+    ptr = nextPtr;
+  }
+}
 
-  Node(int _data, Node *_next) : data(_data), next(_next) {}
-};
+List::List(const List &other) {
+  ++counter;
+  for (ConstIterator it = other.begin(); it != other.end(); ++it) {
+    push_back(*it);
+  }
+}
 
-//===-------------------------===//
-// List
-//===-------------------------===//
+List &List::operator=(const List &other) {
+  if (this == &other)
+    return *this;
 
-class List {
-private:
-  Node *head = nullptr;
+  free();
+  head = nullptr;
 
-  void free();
+  for (Node *ptr = other.head; ptr != nullptr; ptr = ptr->next) {
+    push_back(ptr->data);
+  }
+  return *this;
+}
 
-public:
-  static int counter;
+void List::push_back(int data) {
+  Node **ptr = &head;
+  while ((*ptr) != nullptr) {
+    ptr = &(*ptr)->next;
+  }
+  *ptr = new Node{data, nullptr};
+}
 
-  typedef list_detail::Iterator Iterator;
-  using ConstIterator = list_detail::ConstIterator;
-
-  List() { ++counter; }
-  List(const List &other);
-  List &operator=(const List &other);
-
-  ~List() { free(); }
-
-  void push_back(int data);
-  int length() const;
-
-  // [begin(),
-  Iterator begin() { return Iterator{head}; }
-  // end())
-  Iterator end() { return Iterator{nullptr}; }
-
-  ConstIterator begin() const { return ConstIterator{head}; }
-  ConstIterator end() const { return ConstIterator{nullptr}; }
-};
-
-std::ostream &operator<<(std::ostream &out, const List &l);
-
-#endif // __LINKED_LIST_H__
+int List::length() const {
+  int length = 0;
+  for (Node *ptr = head; ptr != nullptr; ptr = ptr->next) {
+    length++;
+  }
+  return length;
+}

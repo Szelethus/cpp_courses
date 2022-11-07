@@ -32,35 +32,3 @@
 
 ### template printIf függvény
 ### template find függvény
-
--------------------------------
-
-### set
-#### Ekvivalencia
-#### Piros-fekete fa
-#### példa: uniquing, rendezés
-#### find(), konténer specifikus műveletek
-#### Point: x szerinti rendezés csapda
-#### String: C++ Java, Haskell, GOD
-##### GOD nincs beszúrva, mégis azt mondja van ilyen
-##### Ekvivalencia osztály
-##### gyenge rendezés: <=
-###### Elvesztjük az ekvivalenciát
-#### Ekvivalencia != egyenlőség (==)
-
-### list
-#### Elmélet vs gyakorlat
-#### iterátor léptetés
-#### splice
-
--------------------------------
-
-### map
-#### uniquing, rendezés
-#### operator[]
-##### default konstruál
-##### nem konstans
-#### iterator pair-t ad vissza
-
-### Iterátor kategóriák
-### input, forward, bidirectional, random access
