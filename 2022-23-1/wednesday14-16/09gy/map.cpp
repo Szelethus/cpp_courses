@@ -16,13 +16,19 @@ int main() {
   map[4] = "Dénes";
   map[4] = "Dani";
 
-  //// Insert
-  //std::pair<int, std::string> elem(1, "Andris");
-  //map.insert(elem);
+  if (map[0] == "C++") {
+    std::cout << "Contained!\n";
+  }
 
-  //map.insert(std::pair<int, std::string>(2, "Béla"));
+  const std::map<int, std::string> m2 = map;
 
-  //map.insert(std::make_pair(3, "Cecília"));
+  // Insert
+  std::pair<int, std::string> elem(1, "Andris");
+  map.insert(elem);
+
+  map.insert(std::pair<int, std::string>(2, "Béla"));
+
+  map.insert(std::make_pair(3, "Cecília"));
 
   printMap(map);
 }
