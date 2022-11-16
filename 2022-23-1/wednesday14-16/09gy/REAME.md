@@ -43,6 +43,3 @@
 ##### default konstruál
 ##### nem konstans
 #### iterator pair-t ad vissza
-
-### Iterátor kategóriák
-### input, forward, bidirectional, random access
