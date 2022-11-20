@@ -1,6 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
+#include <set>
 
 struct StringLength {
   bool operator()(const std::string &lhs, const std::string &rhs) const {
@@ -8,15 +9,19 @@ struct StringLength {
   }
 };
 
+struct Mod3 {
+  bool operator()(int a, int b) {
+    return a % 3 < b % 3;
+  }
+};
+
 int main() {
-  std::vector<std::string> v;
-  v.push_back("ADA");
-  v.push_back("Java");
-  v.push_back("1234567");
-  v.push_back("Maci");
-  v.push_back("C++");
-  v.push_back("Haskell");
-  sort(v.begin(), v.end(), StringLength());
-  for (std::vector<std::string>::iterator it = v.begin(); it != v.end(); ++it)
-    std::cout << *it << ' ';
+  std::vector<int> vec{3, 2, 4, 1, 5, 7, 6};
+  std::stable_sort(vec.begin(), vec.end(), Mod3{});
+  //std::set<int> s{vec.begin(), vec.end()};
+  //vec.assign(s.begin(), s.end());
+  for (int i : vec) {
+    std::cout << i << '\n';
+  }
+
 }

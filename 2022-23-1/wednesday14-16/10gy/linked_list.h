@@ -6,13 +6,14 @@
 //===---------------------------===//
 
 #include <iosfwd>
+#include <iterator>
 
 template <class T>
 struct Node;
 
 // A nem konstans listák iterátora, egy pointer általánosítása
 template <class T>
-class Iterator {
+class Iterator : public std::iterator<std::forward_iterator_tag, T> {
   Node<T> *ptr;
 
 public:

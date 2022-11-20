@@ -1,11 +1,9 @@
 #include <iostream>
 #include <vector>
+#include <set>
 
-using vec_const_iter = std::vector<int>::const_iterator;
-
-template <class T>
-vec_const_iter find(vec_const_iter begin, vec_const_iter end,
-                    T pred) {
+template <class Iter, class T>
+Iter find(Iter begin, Iter end, T pred) {
   for (; begin != end; ++begin) {
     if (pred(*begin))
       return begin;
@@ -25,6 +23,15 @@ struct SecondGreaterThan100 {
   }
 };
 
+using vec_const_iter = std::vector<int>::const_iterator;
+
+struct IsSameString {
+  std::string elem;
+  bool operator()(std::string s) {
+    return elem == s;
+  }
+};
+
 int main() {
   std::vector<int> v = {102, 1, 4, 5, 103};
 
@@ -33,5 +40,6 @@ int main() {
   if (it != v.end()) {
     std::cout << "Found: " << *it << '\n';
   }
-
+  std::set<std::string> s{"a", "b"};
+  find(s.begin(), s.end(), IsSameString{"a"});
 }
