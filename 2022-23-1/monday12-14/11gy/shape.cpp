@@ -1,0 +1,5 @@
+#include <iostream>
+
+struct Shape {
+
+};

@@ -23,7 +23,6 @@
 #### Circle
 #### Rectangle
 
-### konstruktor delegáció
 ### protected
 ### Öröklődési fajták
 ### altípus
@@ -32,7 +31,9 @@
 #### slicing
 #### Dinamikus típus
 
-
 ### virtuális függvények
 #### Polimorfizmus
 #### tisztán virtuális
+
+### Shape default ctor kuka
+#### konstruktor delegáció
