@@ -1,0 +1,3 @@
+# Tizenkettedik gyakorlat
+
+Elmaradt.

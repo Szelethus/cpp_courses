@@ -60,6 +60,9 @@ const int max = 1000;
 int main()
 {
   int your_mark = 1;
+
+
+
   std::set<std::string> sst;
   sst.insert( "Hello" );
   sst.insert( "World" );
@@ -90,10 +93,6 @@ int main()
 
 
 
-
-
-
-
   smxf.inverse();
   sstf.inverse();
   sstf.inverse();
@@ -110,13 +109,11 @@ int main()
     tif.filter( 2 );
     empty = ti.empty();
   }
-
   if ( empty && !ti.empty() && 1 == sst.count( "World" ) &&
        1 == ti.count( 7 ) )
   {
     your_mark = *(ti.begin()) + sst.size();
   }
-
 
 
 
@@ -158,16 +155,13 @@ int main()
   lf.filter( "SQL" );
   lf -= is_good_language();
 
-  std::cout << "smx: " << smx.size() << '\n';
   smxf -= is_even();
-
 
   if ( 1 == smx.count( max / 4 ) && 1 == langs.count( "C++" ) &&
        max / 2 < smx.size() && 0 == langs.count( "Java" ) )
   {
     your_mark = langs.size() + langs.begin()->size();
   }
-
 
 
 

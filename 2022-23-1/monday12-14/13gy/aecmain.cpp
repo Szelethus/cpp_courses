@@ -11,7 +11,6 @@ int max = 1000;
 int main()
 {
   int your_mark = 1;
-  /* 2-es
   alternating_endpoint_container<int> s;
   for( int i = 0; i < max; ++i )
   {
@@ -36,8 +35,15 @@ int main()
   {
     your_mark = c.at( 2 );
   }
-  */
-  /* 3-as
+
+
+
+
+
+
+
+
+
   for( int i = 0; i < max / 2; ++i )
   {
     s.erase();
@@ -53,8 +59,16 @@ int main()
   {
     your_mark = c[ 0 ];
   }
-  */
-  /* 4-es
+
+
+
+
+
+
+
+
+
+
   alternating_endpoint_container<int>::iterator it =
     std::max_element( s.begin(), s.end() );
   if ( (( max / 2 - 1 ) * ( max / 2 )) / 2 ==  std::accumulate( s.begin(), s.end(), 0 ) &&
@@ -62,8 +76,15 @@ int main()
   {
     your_mark = s[ max / 4 ] + c[ 1 ];
   }
-  */
-  /* 5-os
+
+
+
+
+
+
+
+
+
   std::set<double> a;
   a.insert( 6.12 );
   a.insert( 1.11 );
@@ -81,7 +102,9 @@ int main()
   {
     your_mark = std::accumulate( eb.begin() + 1, eb.end(), 0 );
   }
-  */
+
+
+
   std::cout << "Your mark is "
             << your_mark;
   std::endl( std::cout );

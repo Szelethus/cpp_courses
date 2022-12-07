@@ -6,13 +6,13 @@
 
 template <class T, class BinPred = std::less<T>>
 class set_filtering {
-  std::set<T, BinPred> filtered;
   std::set<T, BinPred> &original;
+  std::set<T, BinPred> filtered;
 
   typedef typename std::set<T, BinPred>::iterator set_iter;
 
 public:
-  set_filtering(std::set<T, BinPred> &original) : original(original) {}
+  set_filtering(std::set<T, BinPred> &s) : original(s) {}
 
   ~set_filtering() {
     original.insert(filtered.begin(), filtered.end());
@@ -22,16 +22,18 @@ public:
     set_iter it = original.find(val);
     if (it == original.end())
       return;
+
     filtered.insert(*it);
-    original.erase(it);
+    original.erase(*it);
   }
 
   void unfilter(const T &val) {
     set_iter it = filtered.find(val);
     if (it == filtered.end())
       return;
+
     original.insert(*it);
-    filtered.erase(it);
+    filtered.erase(*it);
   }
 
   void inverse() {
@@ -44,52 +46,33 @@ public:
 
 private:
   template <class Pred>
-  set_iter findInOriginal(const Pred &pred) {
-    return std::find_if(original.begin(), original.end(), pred);
-  }
-  template <class Pred>
-  set_iter findNotInOriginal(const Pred &pred) {
-    return std::find_if_not(original.begin(), original.end(), pred);
-  }
-  template <class Pred>
-  set_iter findInFiltered(const Pred &pred) {
-    return std::find_if(filtered.begin(), filtered.end(), pred);
-  }
-
-  void filter(set_iter it) {
-    filtered.insert(*it);
-    original.erase(it);
-  }
-
-  void unfilter(set_iter it) {
-    original.insert(*it);
-    filtered.erase(it);
+  set_iter findInOriginal(Pred pred) {
+    return std::find_if(original.begin(),
+                               original.end(),
+                               pred);
   }
 
 public:
   template <class Pred>
-  void operator+=(const Pred &pred) {
+  void operator+=(Pred pred) {
     set_iter it = findInOriginal(pred);
+
     while (it != original.end()) {
-      filter(it);
+      filter(*it);
       it = findInOriginal(pred);
     }
   }
-  //template <class Pred>
-  //void operator-=(const Pred &pred) {
-  //  set_iter it = findNotInOriginal(pred);
-  //  while (it != original.end()) {
-  //    filter(it);
-  //    it = findNotInOriginal(pred);
-  //  }
-  //}
 
   template <class Pred>
-  void operator-=(const Pred &pred) {
-    set_iter it = findInFiltered(pred);
+  void operator-=(Pred pred) {
+    // Don't repeat code...
+    set_iter it = std::find_if(filtered.begin(),
+                               filtered.end(),
+                               pred);
+
     while (it != filtered.end()) {
-      unfilter(it);
-      it = findInFiltered(pred);
+      unfilter(*it);
+      it = std::find_if(filtered.begin(), filtered.end(), pred);
     }
   }
 };
