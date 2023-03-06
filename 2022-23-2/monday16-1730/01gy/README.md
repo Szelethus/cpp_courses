@@ -34,4 +34,8 @@
 ### logikai operátorok
 ### switch
 
+## String
+### Soon: karakter tömb!
+### string mérete, string elemei
 
+## While ciklus, for ciklus
