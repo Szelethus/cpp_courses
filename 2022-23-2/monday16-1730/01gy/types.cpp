@@ -1,10 +1,28 @@
 #include <iostream>
 
 int main() {
-  double d = 0;
-  d += 0.1;
-  d += 0.1;
-  d += 0.1;
-  bool b = 0.3 == d;
-  std::cout << b << '\n';
+  short int s = 6;
+  int i = 5;
+  long l = 5;
+  long long ll = 6;
+
+  unsigned short us;
+  unsigned int ui = 5;
+  unsigned long ul;
+  unsigned long long ull;
+
+  float f = 5.6;
+  double d;
+  long double ld;
+
+
+  char c = 60;
+
+  c = 'k';
+  c = '\n';
+
+  bool b = true;
+  bool b2 = false;
+
+  std::cout << c << '\n';
 }
