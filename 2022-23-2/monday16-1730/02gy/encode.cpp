@@ -4,26 +4,26 @@ char encode(char c) {
   std::string from = "aeiou";
   std::string to = "eioua";
 
-  for (int i = 0; i < from.size(); ++i) {
-    if (from[i] == c) {
-      c = to[i];
+  for (int j = 0; j < from.size(); ++j) {
+    if (c == from[j]) {
+      c = to[j];
       break;
     }
   }
+  
   return c;
 }
 
 int main() {
-  std::string input;
-  std::cout << "Please provide a character to encode: ";
-  std::cin >> input;
+  std::cout << "Please provide a character to encode!\n";
 
-  std::string from = "aeiou";
-  std::string to = "eioua";
+  std::string input;
+  std::cin >> input;
 
   for (int i = 0; i < input.size(); ++i) {
     input[i] = encode(input[i]);
   }
-  
-  std::cout << "Encoded: " << input << '\n';
+
+  std::cout << "Your encoded character: " << input << '\n';
+  return 0;
 }

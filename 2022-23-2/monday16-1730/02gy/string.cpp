@@ -1,8 +1,9 @@
 #include <iostream>
+#include <string>
 
 int main() {
   std::string h = "Hello";
-  std::cout << h.size() << '\n';
-  std::cout << sizeof(h) << '\n';
-  std::cout << sizeof("Hello") << '\n';
+
+  h[3] = 'i';
+  std::cout << h << '\n';
 }
