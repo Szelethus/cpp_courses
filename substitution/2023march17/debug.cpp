@@ -12,6 +12,7 @@ int calculate(int i) {
 }
 
 int main() {
+  // Hellóka
   std::cout << calculate(2) << '\n';
   std::cout << calculate(0) << '\n';
 
