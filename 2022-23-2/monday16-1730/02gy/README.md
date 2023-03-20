@@ -23,11 +23,3 @@
 ### do
 ### Input ellenőrzés
 ### String átírás
-
-## Rekurzió: faktoriális
-### Leszálló ág, megállási feltétel
-### optimalizáció
-
-## Jobbérték, balérték, láthatóság, élettartam
-
-## Mutatók
