@@ -12,6 +12,10 @@ int main() {
 
   std::cout << &ref << '\n';
   std::cout << &i << '\n';
+  
+  int *nptr = 0;
+  int *nptr1 = NULL;
+  int *nptr2 = nullptr;
 
   // std::cout << "&c: " << &c << '\n';
   // std::cout << "ptr: " << ptr << '\n';

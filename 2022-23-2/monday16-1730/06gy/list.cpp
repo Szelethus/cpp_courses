@@ -4,51 +4,59 @@ struct Node {
   int data;
   Node *next;
 
-  Node(int data, Node *next = nullptr) : data(data), next(next) {}
+  Node(int _data) {
+    data = _data;
+    next = nullptr;
+  }
 };
 
 class List {
   Node *head = nullptr;
 
 public:
-  void add(int data) {
+  ~List() {
+    free();
+  }
+
+  void push_back(int data) {
     if (head == nullptr) {
       head = new Node(data);
       return;
     }
 
     Node *ptr = head;
+    
     while (ptr->next != nullptr) {
       ptr = ptr->next;
     }
+
     ptr->next = new Node(data);
   }
 
-  void free() {
+  void display() {
     Node *ptr = head;
     while (ptr != nullptr) {
-      Node *nextPtr = ptr->next;
-      delete ptr;
-      ptr = nextPtr;
+      std::cout << ptr->data << '\n';
+      ptr = ptr->next;
     }
   }
 
-  void print() {
-    for (Node *ptr = head; ptr != nullptr; ptr = ptr->next)
-      std::cout << ptr->data << '\n';
+private:
+  void free() {
+    Node *ptr = head;
+    while (ptr != nullptr) {
+      Node *nextptr = ptr->next;
+      delete ptr;
+      ptr = nextptr;
+    }
   }
 };
 
 int main() {
   List l;
-  l.add(5);
-  l.add(6);
-  l.add(7);
-  l.add(7);
-  l.add(7);
-  l.add(7);
-  l.add(7);
-  l.print();
+  l.push_back(5);
+  l.push_back(6);
+  l.push_back(7);
 
-  l.free();
+  l.display();
 }
