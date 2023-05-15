@@ -1,4 +1,4 @@
-# Nyóc gyak
+# Kilencedik gyak (8. jelen lévő hallgató hiányában elmaradt)
 
 ## láncolt lista újraírás
 ### konstruktor, push_back, display, free
