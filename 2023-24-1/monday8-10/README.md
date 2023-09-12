@@ -4,9 +4,7 @@ Elérhető vagyok emailen a dkszelethus <kukac> gmail <pont> com címen, valamin
 
 A gyakorlaton készült kódokat, illetve a korábbi féléveken készített kódokat ebben a repositoryban lehet elérni.
 
-8:30kor pontban (!) kezdjük a gyakorlatokat.
-
-November 14ei gyakorlatot helyettesíteni fogja valaki.
+10:15pontban (!) kezdjük a gyakorlatokat.
 
 A tárgyhoz korábban készült egy jegyzet:
 https://people.inf.elte.hu/szelethus/LaTeX/cpp/cpp_book/cpp_book.pdf
