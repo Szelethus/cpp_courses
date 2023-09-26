@@ -1,10 +1,5 @@
 # Háromadikodik gyakorlat
 
-## Paraméter átvétel
-### Érték szerint
-### Referencia / Pointner szerint
-#### Különbség, konvenciók
-
 ### Mikor melyiket érdemes választani?
 #### Rule of thumb: const & when in doubt
 #### Memóriacímet is másolni kell
@@ -12,8 +7,11 @@
 
 ### Visszatérési érték
 
-## Karakterlánc literálok
-### Nem konstans char pointer literálra
+## Függvény túlterhelés
+### C++ Name mangling
+### Operátorok
+### https://en.cppreference.com/w/cpp/language/operator_precedence
+### NULL vs std::nullptr
 
 ## I/O
 ### std::cout / std::cin
@@ -27,6 +25,8 @@
 
 ## Point beolvasás kiírás
 
+## Karakterlánc literálok
+### Nem konstans char pointer literálra
 ## string
 
 ## Fájl kezelés
@@ -35,9 +35,3 @@
 ## Függvény pointer
 ### https://fuckingfunctionpointers.com/
 ### https://cdecl.org/
-
-## Függvény túlterhelés
-### C++ Name mangling
-### Operátorok
-### https://en.cppreference.com/w/cpp/language/operator_precedence
-### NULL vs std::nullptr
