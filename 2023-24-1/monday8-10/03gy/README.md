@@ -17,21 +17,13 @@
 ### std::cout / std::cin
 ### operator>>
 #### https://en.cppreference.com/w/cpp/io/basic_ostream/operator_ltlt
-#### alap típusokra member function, bonyolultabbakra free
-#### balról jobbra zárójelezzük, láncolható
 ### endl
 
-## Input hibák
-
-## Point beolvasás kiírás
-
-## Karakterlánc literálok
-### Nem konstans char pointer literálra
-## string
+## Encode példa
 
 ## Fájl kezelés
 ### getline
 
-## Függvény pointer
-### https://fuckingfunctionpointers.com/
-### https://cdecl.org/
+## Karakterlánc literálok
+### Nem konstans char pointer literálra
+## string
