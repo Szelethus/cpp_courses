@@ -1,0 +1,3 @@
+## Függvény pointer
+### https://fuckingfunctionpointers.com/
+### https://cdecl.org/

@@ -1,0 +1,44 @@
+(1) Mi az alábbi kifejezések eredménye?
+
+#define A (1 + 2)
+#define B 3 + 4
+
+1.: A + B
+2.: A * B
+3.: (A) * B
+4.: A * (B)
+
+(2) Írjuk meg az összeadás operátort a Complex osztályhoz!
+
+struct Complex {
+  int rel, im;
+};
+
+Complex operator+(???, ???) {
+  ???
+}
+
+int main() {
+  Complex a{2, 3};
+  Complex b{5, 6};
+  Complex ret = a + b;
+  Complex ret2 = operator+(a, b);
+}
+
+(3) Mit ír ki az alábbi program? Miért?
+(pointer méret a gépen: 8)
+
+
+void f(int p[5]) {
+  std::cout << sizeof(p) << '\n';
+}
+void g(int *p) {
+  std::cout << sizeof(p) << '\n';
+}
+
+int main() {
+  int t[5] = {1,2,3,4,5};
+  f(t);
+  g(t);
+}
+

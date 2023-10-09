@@ -1,0 +1,24 @@
+(1) Mi a különbség a konstans mutató és a konstansra mutató mutató között?
+
+(2) Helyes az alábbi program? Ha igen, mit ír ki? Ha nem, miért nem?
+
+int f(int &i) {
+  ++i;
+  return i;
+}
+
+int main() {
+  int i = 0;
+  std::cout << f(i) << f(i) << '\n';
+}
+
+(3) Írjunk egy swap függvényt, ami pointerként veszi át a paramétereit!
+
+void swap(???, ???) {
+  ???
+}
+
+int main() {
+  int c = 5, d = 8;
+  swap(&c, &d);
+}
