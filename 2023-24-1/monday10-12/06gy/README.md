@@ -5,6 +5,8 @@
 ### Rule of 3
 ### Reguláris típus, félig reguláris típus
 
+## operator new[]
+
 ## Ellenpélda a reguláris típusra
 ### Két repülőtéri operátor
 
