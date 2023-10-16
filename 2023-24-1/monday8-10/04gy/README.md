@@ -41,6 +41,3 @@
 ### add
 #### Aleset az üres listára
 ### free, display
-### add "egyszerűsítése"
-### Konstruktor
-
