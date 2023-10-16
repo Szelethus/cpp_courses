@@ -44,4 +44,3 @@
 ### add "egyszerűsítése"
 ### Konstruktor
 
-## malloc/free vs new/delete
