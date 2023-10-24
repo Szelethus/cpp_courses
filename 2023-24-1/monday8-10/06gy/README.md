@@ -31,11 +31,3 @@
 ### Konstans iterátor <- Iterátor
 ### Konverziós konstruktor
 ### Explicit konstruktor: List l = nullptr
-
-## Konverziós operátor
-
-## Inline függvények
-### strong reference, weak reference
-
-## Fordítás sebessége, iosfwd
-### Print -> operator<<
