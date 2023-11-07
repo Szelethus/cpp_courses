@@ -12,9 +12,6 @@
 ## Fordítás sebessége, iosfwd
 ### Print -> operator<<
 
-## Typedef, using
-### detail::iterator
-
 ## Class static variable
 ### Out of class definition
 
@@ -24,14 +21,3 @@
 ### Default template paraméter
 ### Template parameter deduction
 #### Array length
-
-## Osztály template
-### Templateek lustasága
-#### Template template paraméter
-
-## Template specializáció
-### std::vector<bool>
-### Factorial
-### Statikus változók
-
-## Dependent scope
