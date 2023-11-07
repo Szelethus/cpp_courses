@@ -23,7 +23,7 @@ void print(A a, B b) {
 
 int main() {
   int c = 5;
-  double d = 6.7;
+  int d = 6.7;
   swap(c, d);
 
   Wrapper a{6};

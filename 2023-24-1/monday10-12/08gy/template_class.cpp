@@ -1,20 +1,18 @@
 #include <iostream>
 
-template <typename T>
+template <class T>
 struct A {
-  T t;
+  T i;
 };
 
 template <>
 struct A<std::string> {
-  std::string str = "Hello";
+  std::string s = "Hello";
 };
 
 int main() {
   A<int> a;
-  a.t = 6;
-
+  a.i = 6;
   A<std::string> s;
-  std::cout << s.str << '\n';
-
+  std::cout << s.s << '\n';
 }
