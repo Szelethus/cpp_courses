@@ -1,0 +1,37 @@
+// (1) Lefordul-e az alábbi program? Ha nem, miért nem?
+
+class C {
+public:
+  int i;
+
+  C(const C &other) {
+    i = other.i;
+  }
+};
+
+int main() {
+  C c{1};
+  C c2 = c;
+}
+
+// (2) Az alábbi C++ osztályban függvény definíciók is vannak:
+
+struct A {
+  void foo() {
+    std::cout << "Hello!\n";
+  }
+};
+
+// Mégis, ha include-al beillesztem 2 cpp fájlba, és lefordítom a kódot,
+// nem kapok linkesi hibát többszörös függvénydefiníció miatt. Miért?
+
+// (3) Írjunk egy reguláris típust!
+
+
+struct Regular {
+  Regular() {}
+  Regulat(const Regular &other) {}
+  Regular &operator=(const Regular &other) {}
+  ~Regular() {}
+  bool operator==(const Regular &other) { return true; }
+};
