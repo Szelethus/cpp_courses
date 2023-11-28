@@ -1,8 +1,7 @@
 #ifndef LINKED_LIST_H
 #define LINKED_LIST_H
 
-#include <cstddef>
-#include <iosfwd>
+#include <iostream>
 #include <iterator>
 
 template <class T>
@@ -10,46 +9,43 @@ struct Node {
   T data;
   Node *next;
 
-  Node(T data, Node *next) : data(data), next(next) {}
+  Node(const T &_data, Node *_next) : data(_data), next(_next) {}
 };
-// ---------------------------------------------------
+//------------------------------------------------------------------
 
 namespace detail {
 template <class T>
 class ConstIterator;
 } // namespace detail
 
+// Iterátorok a mutatók általánositásai
 namespace detail {
-// Mutató általánositása
 template <class T>
 class Iterator {
   Node<T> *ptr;
 
 public:
   explicit Iterator(Node<T> *ptr) : ptr(ptr) {}
-  // prefix operátor
   Iterator operator++();
-  // postfix opearátor
   Iterator operator++(int);
   T &operator*() { return ptr->data; }
-  bool operator!=(Iterator other) { return ptr != other.ptr; }
-  bool operator==(Iterator other) { return !(*this != other); }
-
+  bool operator==(Iterator other) { return ptr == other.ptr; }
+  bool operator!=(Iterator other) { return !(*this == other); }
   // konverziós operátor
   operator ConstIterator<T>();
-
   // friend class ConstIterator;
+  
   using iterator_category = std::forward_iterator_tag;
+  using difference_type = std::size_t;
   using value_type = T;
   using pointer = T*;
-  using reference  = T&;
-  using difference_type = std::size_t;
+  using reference = T&;
 };
 } // namespace detail
-// ---------------------------------------------------
 
+//------------------------------------------------------------------
+// Konstans iterátorok a konstansra mutató mutatók általánositásai
 namespace detail {
-// Konstansra mutató mutató általánositása
 template <class T>
 class ConstIterator {
   const Node<T> *ptr;
@@ -57,23 +53,21 @@ class ConstIterator {
 public:
   explicit ConstIterator(const Node<T> *ptr) : ptr(ptr) {}
   // ConstIterator(Iterator it) : ptr(it.ptr) {}
-  // prefix operátor
   ConstIterator operator++();
-  // postfix opearátor
   ConstIterator operator++(int);
   const T &operator*() { return ptr->data; }
-  bool operator!=(ConstIterator other) { return ptr != other.ptr; }
-  bool operator==(ConstIterator other) { return !(*this != other); }
+  bool operator==(ConstIterator other) { return ptr == other.ptr; }
+  bool operator!=(ConstIterator other) { return !(*this == other); }
 };
 } // namespace detail
 
-// ---------------------------------------------------
+//------------------------------------------------------------------
 template <class T>
 class List {
   Node<T> *head;
 
 public:
-  using Iterator =  detail::Iterator<T>;
+  using Iterator = detail::Iterator<T>;
   using ConstIterator = detail::ConstIterator<T>;
 
   List() : head(nullptr) {}
@@ -91,15 +85,13 @@ private:
   void free();
 
 public:
-  void push_back(T data);
+  void push_back(const T &data);
 };
 
 template <class T>
 std::ostream &operator<<(std::ostream &out, const List<T> &l);
 
-// ---------------------------------------------------
-// Implementation.
-// ---------------------------------------------------
+//------------------------------------------------------------------
 namespace detail {
 template <class T>
 Iterator<T> Iterator<T>::operator++() {
@@ -113,19 +105,18 @@ Iterator<T> Iterator<T>::operator++(int) {
   ptr = ptr->next;
   return prev;
 }
-
+// konverziós operátor
 template <class T>
-Iterator<T>::operator ConstIterator<T>() { return ConstIterator(ptr); }
+Iterator<T>::operator ConstIterator<T>() { return ConstIterator{ptr}; }
 } // namespace detail
-// ---------------------------------------------------
+//------------------------------------------------------------------
+
 namespace detail {
 template <class T>
 ConstIterator<T> ConstIterator<T>::operator++() {
   ptr = ptr->next;
   return *this;
 }
-
-// postfix opearátor
 template <class T>
 ConstIterator<T> ConstIterator<T>::operator++(int) {
   ConstIterator prev = *this;
@@ -133,8 +124,8 @@ ConstIterator<T> ConstIterator<T>::operator++(int) {
   return prev;
 }
 } // namespace detail
+//------------------------------------------------------------------
 
-// ---------------------------------------------------
 template <class T>
 List<T>::List(const List &other) : head(nullptr) {
   Node<T> *ptr = other.head;
@@ -146,10 +137,12 @@ List<T>::List(const List &other) : head(nullptr) {
 
 template <class T>
 List<T> &List<T>::operator=(const List<T> &other) {
-  if (&other == this)
+  if (this == &other)
     return *this;
+
   free();
   head = nullptr;
+
   Node<T> *ptr = other.head;
   while (ptr != nullptr) {
     push_back(ptr->data);
@@ -162,14 +155,14 @@ template <class T>
 void List<T>::free() {
   Node<T> *ptr = head;
   while (ptr != nullptr) {
-    Node<T> *nextPtr = ptr->next;
+    Node<T> *nextptr = ptr->next;
     delete ptr;
-    ptr = nextPtr;
+    ptr = nextptr;
   }
 }
 
 template <class T>
-void List<T>::push_back(T data) {
+void List<T>::push_back(const T &data) {
   Node<T> **ptr = &head;
   while (*ptr != nullptr) {
     ptr = &(*ptr)->next;
@@ -179,11 +172,9 @@ void List<T>::push_back(T data) {
 
 template <class T>
 std::ostream &operator<<(std::ostream &out, const List<T> &l) {
-  using ListIter = typename List<T>::ConstIterator;
-  for (ListIter it = l.begin(); it != l.end(); ++it) {
-    out << *it << '\n';
+  for (typename List<T>::ConstIterator it = l.begin(); it != l.end(); ++it) {
+    std::cout << *it << '\n';
   }
   return out;
 }
-
 #endif // LINKED_LIST_H
