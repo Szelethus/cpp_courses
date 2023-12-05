@@ -10,24 +10,33 @@
 
 ### Shape (x, y), area
 #### Circle, public öröklödés, a public később
+##### area függvényben x, y privét, legyen protected
 #### Rectangle
 
 ### protected láthatóság
 ### Öröklődési fajták
-### altípus
-#### síkidomot fogadó függvényeknek mehet Circle/Rectangle
-#### Circle/Rectangle 
+
+### konstruktor delegáció
 
 ### értékadás
 #### slicing
-#### Dinamikus típus
+### Dinamikus/Statikus típus
 
 ### virtuális függvények
-#### Polimorfizmus
-#### tisztán virtuális
+#### Polimorfizmus, polimorfikus típus
 
-### Shape default ctor kuka
-#### konstruktor delegáció
+### vtable, vpointer
+
+#### tisztán virtuális
+#### Abstract típus (privát destruktor)
+#### Explicit namespace resolution
+
+## Castok
+### dynamic_cast
+
+### altípus
+#### Circle/Rectangle paraméter mindig lehet általánosabb
+#### Shape-et visszadó függvény mindig lehet specifikusabb
 
 ### Általánosítás
 ### Többszörös öröklődés

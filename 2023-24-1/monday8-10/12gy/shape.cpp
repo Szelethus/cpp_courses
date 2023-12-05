@@ -5,16 +5,24 @@ protected:
   int x, y;
 
 public:
-  void print() const {
-    std::cout << "(x, y): " << x << ", " << y;
-  }
+  Shape(int x, int y) : x(x), y(y) {}
+
+  virtual int area() const { return -1; }
 };
 
 class Circle : public Shape {
   int r;
 
 public:
-  void print() const {
-    std::cout << "(x, y): " << x << ", " << y << ", r:" << r;
+  Circle(int x, int y, int r) : Shape(x, y), r(r) {}
+
+  int area() const {
+    return r * r * 3.14;
   }
 };
+
+int main() {
+  Circle c(0,0,4);
+  Shape &s = c;
+  std::cout << s.area() << '\n';
+}
