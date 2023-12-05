@@ -4,7 +4,7 @@ struct A {
   A() {
     std::cout << "A\n";
   }
-  ~A() {
+  virtual ~A() {
     std::cout << "~A\n";
   }
 };
@@ -25,15 +25,17 @@ struct C : public B {
   }
 };
 struct D : public C {
-  D() {
+  int *ptr;
+  D() : ptr(new int) {
     std::cout << "D\n";
   }
   ~D() {
+    delete ptr;
     std::cout << "~D\n";
   }
 };
 
 int main() {
-  A *ptr = new D;
-  delete ptr;
+  A *a = new D;
+  delete a;
 }

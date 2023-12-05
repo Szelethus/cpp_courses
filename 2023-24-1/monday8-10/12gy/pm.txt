@@ -1,0 +1,13 @@
+// (1) Miért érdemes az std::set find tagfüggvényét
+// preferálni std::find helyett, ha egy set-ben keresünk?
+
+// (2) Partícionáljuk STL függvény segítségével az alábbi
+// vectort úgy, hogy a páros elemek legyenek elöl, a páratlanok hátul!
+// (vagy fordítva)
+
+struct ??? {
+  ???
+};
+
+std::vector<int> v = {1, 2, 3, 4, 5};
+std::???( ???, ???, ???);
