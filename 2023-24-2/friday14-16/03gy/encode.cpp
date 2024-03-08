@@ -1,3 +1,4 @@
+#include <ios>
 #include <iostream>
 #include <fstream>
 
@@ -6,15 +7,16 @@ char encode(char c) {
   std::string to   = "eioua";
 
   for (int i = 0; i < from.size(); ++i) {
-    if (from[i] == c)
+    if (c == from[i])
       return to[i];
   }
+
   return c;
 }
 
 int main() {
   std::ifstream ifs("input.txt");
-
+  
   if (ifs.fail()) {
     std::cout << "Failed to open 'input.txt'!\n";
     return 1;
@@ -33,9 +35,8 @@ int main() {
     input += tmp + '\n';
   }
 
-  for (int i = 0; i < input.size(); ++i) {
+  for (int i = 0; i < input.size(); ++i)
     input[i] = encode(input[i]);
-  }
 
   std::cout << input << '\n';
 }
