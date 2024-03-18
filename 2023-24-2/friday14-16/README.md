@@ -1,16 +1,71 @@
-# Programozási nyelvek C++ (matematikusoknak)
+# 4. gyak
 
-## Adminisztratív információk
+## Paraméter átvétel: swap
+### Érték szerint
+### Referencia / Pointner szerint
+#### Különbség, konvenciók
 
-Elérhető vagyok emailen a dkszelethus <kukac> gmail <pont> com címen. Teamset nagyon ritkán nézem. Bátran lehet fordulni hozzám kérdésekkel, kérésekkel, mind a tárgy tematikáját illetően (pl. "Miért ez a sorrendje a konstruktorhívásokank?"), megjegyzéssel (pl. "Szerintem nehezen érthetőek voltak a pointerek, talán jobb lenne ezt több ábrával elmondani mégegyszer"), vagy bármi egyébbel.
+### Mikor melyiket érdemes választani?
+#### Rule of thumb: const & when in doubt
+#### Memóriacímet is másolni kell
+#### By-value optimization
 
-A gyakorlatot pontban 14:00-kor kezdődik.
+### Visszatérési érték
 
-A gyakorlaton készült kódokat, illetve a korábbi féléveken készített kódokat ebben a repositoryban lehet elérni.
+## Tömb paraméter
+### Pointer decay, sizeof
+#### Tömb pointer + size
+### Fix méretű tömb paraméter
+### std::array
+### Értékadás
+### Template ízelítő
 
-Az informatikai karon van egy gyakorlat, ahhoz egy jegyzet (ennek a tárgynak a tematikájának egy nagy része átfed vele, mondhatni részhalmaza):
-https://people.inf.elte.hu/szelethus/LaTeX/cpp/cpp_book/cpp_book.pdf
+## Vector
+### Hogy néz ki
+### size(), capacity(), operator[], at(), size()
+### push_back vs resize / constructor
 
-## Tárgy követelményei
+## Polynom példa
 
-https://gsd.web.elte.hu/cpp-en/
+## Complex osztály
+### struct
+### free fn: lus, minus, operator+, operator-
+### operator*
+### operator~
+#### l.re * r.re - l.im * l.im, l.re * r.im + l.im * r.re
+
+## Konstruktor
+### Default konstrukor
+### C++11 explicit default konstruktor
+### Compiler generated
+### temporálisokról NEM
+
+### C-style initialization
+
+## Névterek
+### using namespace
+### Argument Dependent Lookup
+
+## Reference visszatérés
+
+## operator<<
+## operator>>
+
+### operator~ tagfüggvénnyé alakítása
+
+## Memóriamodell
+### Stack, globális tárhely
+
+## Heap
+### Lassabb, de nagyobb
+### Stacket nem kerültük meg
+### nincs nevük
+### Memory leak, leak sanitizer
+### nullptr delete
+
+## Fejelemes láncolt lista
+### Törlési sorrend
+### add, free, display
+### add "egyszerűsítése"
+### Konstruktor
+
