@@ -1,3 +1,4 @@
+#include <cwchar>
 #include <iostream>
 
 struct Node {
@@ -5,33 +6,32 @@ struct Node {
   Node *next;
 };
 
-class List {
+struct List {
   Node *head;
 
-public:
-  ~List() {
-  }
-
-  void push_back(int data) {
-    Node **ptr = &head;
-    while ((*ptr) != nullptr) {
-      ptr = &(*ptr)->next;
-    }
-    *ptr = new Node{data, nullptr};
-  }
-
-  void display() {
-    Node *ptr = head;
-    while (ptr != nullptr) {
-      std::cout << ptr->data << '\n';
-      ptr = ptr->next;
-    }
+  List() {
+    head = nullptr;
   }
 };
 
+void push_back(List &l, int data) {
+  if (l.head == nullptr) {
+    l.head = new Node{data, nullptr};
+    return;
+  }
+  Node *ptr = l.head;
+
+  while (ptr->next != nullptr) {
+    ptr = ptr->next;
+  }
+
+  ptr->next = new Node{data, nullptr};
+}
+
 int main() {
   List l;
-  l.push_back(1);
-  l.display();
 
+  push_back(l, 5);
+  // MEMORY IS LEAKING STILL!!!
 }
+
