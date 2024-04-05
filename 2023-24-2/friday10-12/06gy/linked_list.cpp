@@ -8,30 +8,42 @@ struct Node {
 class List {
   Node *head = nullptr;
 
+  void free() {
+    Node *ptr = head;
+    while (ptr != nullptr) {
+      Node *nextPtr = ptr->next;
+      delete ptr;
+      ptr = nextPtr;
+    }
+  }
+
 public:
   List() = default;
 
-  ~List() { free(); }
-
   List(const List &other) {
-    const Node *ptr = other.head;
-    while (ptr) {
+    Node *ptr = other.head;
+    while (ptr != nullptr) {
       push_back(ptr->data);
       ptr = ptr->next;
     }
   }
 
-  List &operator=(const List &other) {
+  List& operator=(const List &other) {
     if (this == &other)
       return *this;
     free();
     head = nullptr;
-    const Node *ptr = other.head;
-    while (ptr) {
+
+    Node *ptr = other.head;
+    while (ptr != nullptr) {
       push_back(ptr->data);
       ptr = ptr->next;
     }
     return *this;
+  }
+
+  ~List() {
+    free();
   }
 
   void push_back(int data) {
@@ -42,33 +54,41 @@ public:
     *ptr = new Node{data, nullptr};
   }
 
-  void display() {
+  void display2Impl(Node *first, Node *tail) {
+    std::cout << first->data << '\n';
+    if (tail == nullptr)
+      return;
+    display2Impl(tail, tail->next);
+  }
+
+  void display2() {
+    if (head == nullptr)
+      return;
+    display2Impl(head, head->next);
+  }
+
+  void display() const {
     Node *ptr = head;
     while (ptr != nullptr) {
       std::cout << ptr->data << '\n';
       ptr = ptr->next;
     }
   }
-
-  void free() {
-    Node *ptr = head;
-    while (ptr) {
-      Node *nextPtr = ptr->next;
-      delete ptr;
-      ptr = nextPtr;
-    }
-  }
 };
+
+
 
 int main() {
   List l;
-  l.push_back(4);
-  l.push_back(4);
-  l.push_back(4);
-  l.push_back(4);
-  l.push_back(4);
-  l.display();
-  List l2 = l;
-  l2 = l;
-  
+
+  l.push_back(5);
+  l.push_back(6);
+  l.push_back(7);
+
+  l.push_back(8);
+  {
+    List l2 = l;
+    l2.display2();
+  }
+
 }
