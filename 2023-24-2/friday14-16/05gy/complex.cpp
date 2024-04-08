@@ -47,4 +47,5 @@ int main() {
   Complex ret = c2 + 5;
 
   std::cout << ~c1 << '\n';
+  std::cout << c1.operator~() << '\n';
 }
