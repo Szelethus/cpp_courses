@@ -49,12 +49,3 @@
 ### Prefix++
 
 ## Konstans metódusok
-
-## Print átírása, kiemelése
-### Konstans referencia paraméter
-
-## Konstans iterátor
-### Konstans iterátor <- Iterátor
-### Konverziós konstruktor
-### Explicit konstruktor: List l = nullptr
-
