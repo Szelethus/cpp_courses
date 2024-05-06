@@ -6,7 +6,7 @@ struct A {
 
 template <>
 struct A<float> {
-  const static int R = 0;
+  static const int R = 0;
 };
 
 template <class T>
@@ -14,3 +14,6 @@ void foo() {
   typename A<T>::R i;
 }
 
+int main() {
+  //foo<float>();
+}

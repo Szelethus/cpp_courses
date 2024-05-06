@@ -1,15 +1,15 @@
 #include <iostream>
 
 template <int N>
-struct Factorial {
-  const static int value = N * Factorial<N - 1>::value;
+struct Sum {
+  const static int value = N + Sum<N - 1>::value;
 };
 
 template <>
-struct Factorial<0> {
-  const static int value = 1;
+struct Sum<0> {
+  const static int value = 0;
 };
 
 int main() {
-  std::cout << Factorial<5>::value << '\n';
+  std::cout << Sum<1000000>::value << '\n';
 }
