@@ -2,10 +2,11 @@
 #include <list>
 #include <vector>
 
-template <class Iter, class T> Iter find(Iter begin, Iter end, T value) {
-  for (; begin != end; ++begin) {
-    if (*begin == 3)
-      return begin;
+template <class Iter, class T>
+Iter find(Iter begin, Iter end, T val) {
+  for (Iter it = begin; it != end; ++it) {
+    if (*it == val)
+      return it;
   }
   return end;
 }
@@ -20,10 +21,12 @@ int main() {
   std::cout << *it1 << '\n';
 
   std::list<int> l = {1, 2, 3, 4, 5, 3};
-  std::list<int>::iterator it2 = find(l.begin(), l.end(), 3);
+  std::list<int>::iterator it2 = find(l.begin(), l.end(), 10);
 
-  if (it2 == l.end())
+  if (it2 == l.end()) {
+    std::cout << "not found\n";
     return -1;
+  }
 
   std::cout << *it2 << '\n';
 }

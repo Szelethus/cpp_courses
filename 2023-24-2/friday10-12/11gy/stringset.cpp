@@ -1,5 +1,6 @@
 #include <iostream>
 #include <set>
+#include <algorithm>
 
 struct strless {
   bool operator()(std::string a, std::string b) const {
@@ -14,14 +15,21 @@ int main() {
   s.insert("Haskell");
   s.insert("GOD");
 
-  std::cout << s.size() << "\n";
-  std::cout << s.count("GOD") << "\n";
-  std::set<std::string, strless>::iterator it = s.find("GOD");
-  
+  std::cout << s.size() << '\n';
+
+  auto it = s.find("GOD");
+
   if (it == s.end()) {
-    std::cout << "GOD not in s\n";
+    std::cout << "not found with set::find\n";
     return -1;
   }
 
   std::cout << *it << '\n';
+
+  it = std::find(s.begin(), s.end(), "GOD");
+
+  if (it == s.end()) {
+    std::cout << "not found with set::find\n";
+    return -1;
+  }
 }

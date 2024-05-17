@@ -5,16 +5,24 @@ struct Point {
   int x, y;
 };
 
+bool operator<(Point lhs, Point rhs) {
+  return lhs.x < rhs.x;
+}
+
+struct PointLess {
+  bool operator()(Point lhs, Point rhs) const {
+    return lhs.x < rhs.x && lhs.y < rhs.y;
+  }
+};
+
 int main() {
-  std::set<int> s = {1, 3, 4, 2, 6, 5};
-  std::set<Point> sp;
+  std::set<Point, PointLess> sp;
 
   sp.insert(Point{0,1});
+  sp.insert(Point{2,3});
+  sp.insert(Point{0,8});
 
-  s.insert(0);
-  s.insert(0);
-
-  for (int i : s) {
-    std::cout << i << '\n';
+  for (Point p : sp) {
+    std::cout << "(" << p.x << ", " << p.y << ")\n";
   }
 }

@@ -1,14 +1,5 @@
 #include <vector>
-
-template <class Iter, class Pred>
-Iter find_if(Iter begin, Iter end, Pred pred) {
-
-  for (; begin != end; ++begin) {
-    if (pred(*begin))
-      return begin;
-  }
-  return end;
-}
+#include <algorithm>
 
 struct IsSecond3 {
   bool firstFound = false;
@@ -28,7 +19,7 @@ struct IsSecond3 {
 int main() {
   std::vector<int> v = {1, 2, 3, 4, 5, 3};
   std::vector<int>::iterator it = find_if(v.begin(), v.end(),
-                                          IsSecond3{});
+                                               IsSecond3{});
 
   if (it == v.end())
     return -1;
