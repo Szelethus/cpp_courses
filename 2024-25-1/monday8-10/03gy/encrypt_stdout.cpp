@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 
 char encode(char c) {
   std::string from = "aeiou";
@@ -14,28 +13,19 @@ char encode(char c) {
   return c;
 }
 
-int main(int argc, char** argv) {
-  std::ifstream ifs("input.txt");
-  if (ifs.fail()) {
-    std::cout << "Error opening file!\n";
-    return -1;
-  }
-
-  int N;
-  ifs >> N;
-  ifs.ignore();
+int main() {
+  std::cout << "Please provide your data: \n";
 
   std::string input;
 
   std::string tmp;
-  for (int i = 0; i < N; ++i) {
-    std::getline(ifs, tmp);
-    input += tmp + '\n';
+  while(std::cin >> tmp) {
+    input += tmp + ' ';
   }
 
   for (int i = 0; i < input.size(); ++i) {
     input[i] = encode(input[i]);
   }
 
-  std::cout << "Your encoded input:\n" << input;
+  std::cout << "Your encoded input:\n" << input << '\n';
 }
