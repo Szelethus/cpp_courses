@@ -20,20 +20,6 @@
 ### Reguláris típus, félig reguláris típus
 ### Design philosophy: Make it easy to use corrently, and hard to use incorrectly
 
-### Láthatóság
-#### Head védése
-#### Node védése (majd vissza)
-#### free() védelme
-
-### Iterátorok
-#### Tömböknél pointer
-##### ++ -- + - * == !=
-#### Pointerek általánosítása
-
-## operator new[]
-
-## Design philosophy: Make it easy to use corrently, and hard to use incorrectly
-
 ## Láthatóság
 ### Head védése
 ### Node védése (majd vissza)

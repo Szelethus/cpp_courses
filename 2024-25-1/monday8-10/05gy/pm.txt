@@ -1,0 +1,43 @@
+// 1.) Írjunk meg a kiírató left shift operátort (<<)
+// a Complex osztályhoz!
+
+struct Complex {
+  int re, im;
+};
+
+// hint: std::cout típusa std::ostream
+
+??? ???(???) {
+}
+
+int main() {
+  Complex c1{1,2};
+  Complex c2{2,3};
+  
+  std::cout << c1 << c2;
+}
+
+// 2.) Miért nem preferált a globális változók használata?
+// Sorolj fel legalább 2 indokot!
+
+// 3.) Az alábbi konstruktorok közül melyik
+//   * Hívásakor nem definiált viselkedéshez vezet,
+//   * Nem fordul le,
+//   * Lefordul és jól definiált
+
+struct A {
+  const int i;
+  int j;
+
+  // a.)
+  A() : i(0), j(i) {}
+
+  // b.)
+  A() : j(0), i(j) {}
+
+  // c.)
+  A() : j(0) {}
+
+  // d.)
+  A() : i(0) {}
+};
