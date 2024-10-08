@@ -1,0 +1,49 @@
+// 1.) Az alábbi kódrészletek közül melyik
+//   * Nem definiált viselkedéshez vezet, és miért,
+//   * Nem fordul le, és miért,
+//   * Lefordul és jól definiált
+
+// a.)
+const int i;
+int *p = &i;
+
+// b.)
+int i;
+const int *p = &i;
+
+// c.)
+#define I 500;
+int *p = &I;
+
+// (folytatván)
+struct A {
+  int i;
+  A() {}
+  A(int _j) : i(_j) {}
+};
+
+void foo() {
+  // d.)
+  A a1();
+  std::cout << a1.i << '\n';
+
+  // e.)
+  A a2;
+  std::cout << a2.i << '\n';
+
+  // f.)
+  A a3{2};
+  std::cout << a3.i << '\n';
+}
+
+// 2.) Írjunk egy rövid programot, mely a standard
+// inputot egy stringbe beolvassa!
+
+// hint: std::cin-t kell használni, getline-al vagy
+// anélkül
+
+std::string input;
+...
+while (???) {
+  ???
+}
