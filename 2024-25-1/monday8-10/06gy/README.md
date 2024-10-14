@@ -29,7 +29,8 @@
 
 ## Konverziós operátor
 
-## Inline függvények
+## Fájlra szétbontás
+### Inline függvények
 ### strong reference, weak reference
 
 ## Fordítás sebessége, iosfwd
