@@ -1,39 +1,38 @@
 #include "linked_list.h"
-#include <iostream>
 
-// ++prefix
+
+//===-------------------------===//
+// Iterator implementation
+//===-------------------------===//
 Iterator &Iterator::operator++() {
   ptr = ptr->next;
   return *this;
 }
-
-// postfix++
 Iterator Iterator::operator++(int) {
-  Iterator ret = *this;
+  Iterator curr = *this;
   ptr = ptr->next;
-  return ret;
+  return curr;
 }
 
 int &Iterator::operator*() { return ptr->data; }
 
-// ++prefix
+//===-------------------------===//
+// ConstIterator implementation
+//===-------------------------===//
 ConstIterator &ConstIterator::operator++() {
   ptr = ptr->next;
   return *this;
 }
-
-// postfix++
 ConstIterator ConstIterator::operator++(int) {
-  ConstIterator ret = *this;
+  ConstIterator curr = *this;
   ptr = ptr->next;
-  return ret;
+  return curr;
 }
 
 int ConstIterator::operator*() { return ptr->data; }
 
-void display(const List &l) {
-  for (ConstIterator it = l.begin();
-       it != l.end(); ++it) {
+void List::display() const {
+  for (ConstIterator it = begin(); it != end(); ++it) {
     std::cout << *it << '\n';
   }
 }
