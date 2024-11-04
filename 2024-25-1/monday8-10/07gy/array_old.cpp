@@ -1,4 +1,4 @@
-#include <iostream>
+#include <string>
 
 void f1(int *t, int size) {}
 
@@ -11,10 +11,14 @@ int getSize(T (&t)[Size]) {
 
 int main() {
   int t[] = {1,2,3,4,5};
+  int t2[] = {1,2,3,4};
 
   f1(t, sizeof(t)/sizeof(t[0]));
-
   f2(t);
 
-  std::cout << getSize(t) << '\n';
+  std::string st[] = {"a"};
+
+  getSize(t);
+  getSize(t2);
+  getSize(st);
 }
