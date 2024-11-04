@@ -66,6 +66,7 @@ template <class T>
 struct Node {
   T data;
   Node *next;
+  Node(const T& data, Node *next) : data(data), next(next) {}
 };
 
 template <class T>
@@ -198,7 +199,7 @@ void List<T>::push_back(const T &data) {
   Node<T> **ptr = &head;
   while (*ptr)
     ptr = &(*ptr)->next;
-  *ptr = new Node{data, nullptr};
+  *ptr = new Node<T>{data, nullptr};
 }
 
 template <class T>
