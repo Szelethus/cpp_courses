@@ -1,23 +1,38 @@
 #include <iostream>
 #include <set>
 
-struct StringLengthLess {
-  bool operator()(const std::string &lhs, const std::string &rhs) const {
-    return lhs.size() < rhs.size();
+struct Point {
+  int x;
+  int y;
+};
+
+bool operator<(Point lhs, Point rhs) {
+  return lhs.x < rhs.x;
+}
+
+struct PointLess {
+  bool operator()(Point lhs, Point rhs) const {
+    return lhs.x < rhs.x;
   }
 };
 
 int main() {
-  std::set<std::string, StringLengthLess> s;
-  s.insert("C++");
-  s.insert("Java");
-  s.insert("Haskell");
-  s.insert("GOD");
+  std::set<int> s;
+  for (int i = 10; i > 0; --i) {
+    s.insert(i);
+  }
 
-  auto it = s.find("GOD");
+  //for (std::set<int>::iterator it = s.begin(); it != s.end(); ++it)
+  //  std::cout << *it << '\n';
 
-  if (it == s.end())
-    return -1;
+  std::set<Point, PointLess> sp;
 
-  std::cout << *it << '\n';
+  sp.insert(Point{0, 1});
+  sp.insert(Point{3, 1});
+  sp.insert(Point{0, 5});
+
+  for (std::set<Point, PointLess>::iterator it = sp.begin();
+       it != sp.end(); ++it) {
+    std::cout << it->x << ' ' << it->y << '\n';
+  }
 }

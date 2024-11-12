@@ -1,0 +1,29 @@
+// (1) Adj legalább 3 példát szekvenciális konténerekre!
+
+// (2) Mi a templateknél előforduló dependent scope?
+
+// (3) Írjunk egy konverziós konstruktort VAGY konverziós
+// operátort az alábbi típusok között!
+
+struct Ptr {
+  int *p;
+
+  ???
+};
+
+struct ConstPtr {
+  const int *p;
+
+  ???
+};
+
+int main() {
+  Ptr a;
+
+  int k;
+  a.p = &k;
+
+  ConstPtr b = a;
+
+  // a.p == b.p teljesül
+}
