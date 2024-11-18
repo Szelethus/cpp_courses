@@ -1,4 +1,4 @@
-# Nyócadik ekszörszájz
+# 9. gyakorlat
 
 ## Mi az az allocator template paraméter?
 ## set
@@ -33,16 +33,4 @@
 ## list
 ### Elmélet vs gyakorlat
 ### iterátor léptetés -> nem random access
-### splice
-
--------------------------------
-
-### map
-#### std::pair
-#### uniquing, rendezés
-#### operator[]
-##### default konstruál
-##### nem konstans
-#### iterator pair-t ad vissza
-#### insert, std::make_pair
 
