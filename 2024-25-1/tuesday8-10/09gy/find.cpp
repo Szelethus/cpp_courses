@@ -28,7 +28,7 @@ struct IsSecondEven {
 int main() {
   std::vector<int> v = {1,2,3,4,5,6};
 
-  vec_iter it = find(v, IsSecondEven{});
+  vec_iter it = find(v, IsSecondEven());
 
   if (it == v.end())
     return -1;
