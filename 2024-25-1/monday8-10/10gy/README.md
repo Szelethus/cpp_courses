@@ -33,9 +33,3 @@
 #### vector::assign
 ### ekvivalens elemek sorrendje
 ### stable_sort
-
-## partition, stable_partition, partition_point, is_partitioned
-
-## std::remove
-### size megnézése
-### hasonlít a partitionra
