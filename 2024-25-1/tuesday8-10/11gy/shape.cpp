@@ -9,7 +9,7 @@ public:
 
   virtual int area() const = 0;
 
-  virtual void print() {
+  virtual void print() const {
     std::cout << "Shape\n";
   }
 };
@@ -24,24 +24,25 @@ public:
     return r * r * 3.14;
   }
 
-  void print() override {
+  void print() const {
     std::cout << "Circle\n";
   }
 };
 
 void foo(Shape *s) {
-  Circle *c = dynamic_cast<Circle*>(s);
+  Circle *c = dynamic_cast<Circle *>(s);
 
   if (c)
-    std::cout << "its a circle\n";
+    std::cout << "Its a circle!\n";
 }
 
 int main() {
   Circle c(0,0,1);
-  
+
   Shape *s = &c;
 
-  s->print();
+  s->Shape::print();
 
   foo(s);
+
 }
