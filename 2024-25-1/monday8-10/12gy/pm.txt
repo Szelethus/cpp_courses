@@ -1,0 +1,16 @@
+// (1) Miért konstans az std::set<T>::iterator?
+
+// (2) Ellenőrizzük le, hogy egy adott kulcsú elem
+// benne van-e mapban, és ha igen, írjuk ki az értékét!
+
+std::map<std::string, int> m;
+m.insert(...);
+m.insert(...);
+m.insert(...);
+
+std::map<std::string, int>::iterator it = m.find("alma");
+
+if (it != m.end())
+  std::cout << it->second << '\n';
+
+// (3) Mikor nevezünk egy osztályt polimorfikusnak?
