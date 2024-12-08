@@ -1,0 +1,19 @@
+// (1) Mi a különbség a private és a protected láthatóság
+// között?
+
+// (2) Írjunk egy polimorfikus típust!
+
+struct A { virtual void foo(); };
+
+// (3) Módosítsuk a "korte" kulcsú elem értékét 10-re a
+// mapban, ha létezik!
+
+std::map<std::string, int> m;
+m.insert(...);
+m.insert(...);
+m.insert(...);
+
+std::map<std::string, int>::iterator it = m.find("korte");
+
+if (it != m.end())
+  it->second = 10;

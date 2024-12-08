@@ -1,7 +1,0 @@
-int main() {
-  int *p = new int;
-
-  std::size_t l = static_cast<unsigned long>(p);
-
-  delete p;
-}
