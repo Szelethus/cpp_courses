@@ -22,12 +22,15 @@ int main() {
 
   std::string input;
 
+  int N;
+  ifs >> N;
+
+  ifs.ignore();
+
   std::string tmp;
-  while (true) {
+  for (int i = 0; i < N; ++i) {
     std::getline(ifs, tmp);
-    if (ifs.fail())
-      break;
-    input += tmp + ' ';
+    input += tmp + '\n';
   }
 
   for (int i = 0; i < input.size(); ++i) {
