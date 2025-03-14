@@ -5,8 +5,6 @@
 ### automatikus változók, heap
 ### https://www.open-std.org/jtc1/sc22/wg21/docs/papers/2010/n3055.pdf
 
-## login.cpp: nem definiált viselkedések kihasználása
-
 ## Stack működése
 
 ## Konstans korrektség
@@ -28,24 +26,3 @@
 #### Rule of thumb: const & when in doubt
 #### Memóriacímet is másolni kell
 #### By-value optimization
-
-### Visszatérési érték
-
-## Complex osztály
-### struct
-### free fn: plus, minus, operator+, operator-
-### operator*
-#### l.re * r.re - l.im * l.im, l.re * r.im + l.im * r.re
-### negate
-### negate tagfüggvénnyé alakítása
-### negate -> operator~
-
-### C-style initialization
-
-## Konstruktor
-### Default konstrukor
-### C++11 explicit default konstruktor
-### Compiler generated
-### temporálisokról NEM
-
-### tagfv vs free függvény
