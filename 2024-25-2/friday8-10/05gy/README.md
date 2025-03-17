@@ -22,7 +22,7 @@
 ### struct
 ### free fn: plus, minus, operator+, operator-
 ### operator*
-#### l.re * r.re - l.im * l.im, l.re * r.im + l.im * r.re
+#### l.re * r.re - l.im * r.im, l.re * r.im + l.im * r.re
 ### negate
 ### negate tagfüggvénnyé alakítása
 ### negate -> operator~
