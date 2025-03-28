@@ -1,4 +1,5 @@
 #include <iostream>
+
 struct Node {
   int data;
   Node *next;
@@ -10,6 +11,11 @@ class List {
 public:
   // konstruktor
   List() = default;
+
+  // destruktor
+  ~List() {
+    free();
+  }
 
   // másoló konstruktor
   List(const List &other) {
@@ -39,22 +45,19 @@ public:
     return *this;
   }
 
-  // destruktor
-  ~List() {
-    free();
-  }
-
   void push_back(int data) {
-    Node **ptr = &head;
-    while (*ptr != nullptr)
+    Node **ptr = &this->head;
+
+    while (*ptr != nullptr) {
       ptr = &(*ptr)->next;
+    }
 
     *ptr = new Node{data, nullptr};
   }
 
 private:
   void free() {
-    Node *ptr = head;
+    Node *ptr = this->head;
 
     while (ptr != nullptr) {
       Node *nextPtr = ptr->next;
@@ -65,7 +68,7 @@ private:
 
 public:
   void display() {
-    Node *ptr = head;
+    Node *ptr = this->head;
     while (ptr != nullptr) {
       std::cout << ptr->data << '\n';
       ptr = ptr->next;
@@ -79,15 +82,13 @@ void foo(List &l1, List &l2) {
 
 int main() {
   List l;
-
-  l.push_back(1);
-  l.push_back(2);
-  l.push_back(3);
+  
+  l.push_back(5);
+  l.push_back(6);
+  l.push_back(7);
 
   List l2 = l;
-
   foo(l2, l2);
 
   l2.display();
-
 }
