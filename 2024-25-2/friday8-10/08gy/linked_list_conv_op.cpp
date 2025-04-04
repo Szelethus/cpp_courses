@@ -4,34 +4,6 @@
 struct Node;
 
 //===-------------------------------------------===//
-// Iterator
-//===-------------------------------------------===//
-
-class Iterator {
-  Node *ptr;
-
-public:
-  explicit Iterator(Node *_ptr) : ptr(_ptr) {}
-
-  // member function declaration
-  Iterator operator++();
-
-  Iterator operator++(int);
-
-  int& operator*();
-
-  bool operator==(Iterator other) {
-    return ptr == other.ptr;
-  }
-
-  bool operator!=(Iterator other) {
-    return !(*this == other);
-  }
-
-  friend class ConstIterator;
-};
-
-//===-------------------------------------------===//
 // ConstIterator
 //===-------------------------------------------===//
 
@@ -39,11 +11,10 @@ class ConstIterator {
   const Node *ptr;
 
 public:
-  explicit ConstIterator(const Node *_ptr)
-    : ptr(_ptr) {}
+  ConstIterator(const Node *_ptr) : ptr(_ptr) {}
 
   // konverziós konstruktor
-  ConstIterator(Iterator it) : ptr(it.ptr) {}
+  //ConstIterator(Iterator it) : ptr(it.ptr) {}
 
   // member function declaration
   ConstIterator operator++();
@@ -60,6 +31,39 @@ public:
   bool operator!=(ConstIterator other) {
     return !(*this == other);
   }
+};
+
+//===-------------------------------------------===//
+// Iterator
+//===-------------------------------------------===//
+
+class Iterator {
+  Node *ptr;
+
+public:
+  Iterator(Node *_ptr) : ptr(_ptr) {}
+
+  // member function declaration
+  Iterator operator++();
+
+  Iterator operator++(int);
+
+  int& operator*();
+
+  bool operator==(Iterator other) {
+    return ptr == other.ptr;
+  }
+
+  bool operator!=(Iterator other) {
+    return !(*this == other);
+  }
+
+  // konverziós operátor
+  operator ConstIterator() {
+    return ConstIterator{ptr};
+  }
+
+  //friend class ConstIterator;
 };
 
 //===-------------------------------------------===//
@@ -220,8 +224,6 @@ int main() {
 
   Iterator it = l.begin();
   ConstIterator cit = it;
-
-  Iterator nit = Iterator{nullptr};
 
   const List l3 = l;
 

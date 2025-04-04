@@ -1,21 +1,53 @@
 #include <iostream>
 
-// class forward declaration
+//===--------------------------------------------===//
+// ConstIterator
+//===--------------------------------------------===//
+
 struct Node;
 
-//===-------------------------------------------===//
+class ConstIterator {
+  const Node *ptr;
+
+public:
+  ConstIterator(const Node *_ptr) : ptr(_ptr) {}
+
+  //ConstIterator(Iterator it) : ptr(it.ptr) {}
+
+  // ++prefix
+  ConstIterator operator++();
+
+  // postfix++
+  ConstIterator operator++(int);
+
+  // TODO template
+  int operator*();
+
+  bool operator==(ConstIterator other) {
+    return ptr == other.ptr;
+  }
+
+  bool operator!=(ConstIterator other) {
+    return !(*this == other);
+  }
+};
+
+//===--------------------------------------------===//
 // Iterator
-//===-------------------------------------------===//
+//===--------------------------------------------===//
+
+struct Node;
 
 class Iterator {
   Node *ptr;
 
 public:
-  explicit Iterator(Node *_ptr) : ptr(_ptr) {}
+  Iterator(Node *_ptr) : ptr(_ptr) {}
 
-  // member function declaration
+  // ++prefix
   Iterator operator++();
 
+  // postfix++
   Iterator operator++(int);
 
   int& operator*();
@@ -28,61 +60,31 @@ public:
     return !(*this == other);
   }
 
-  friend class ConstIterator;
-};
-
-//===-------------------------------------------===//
-// ConstIterator
-//===-------------------------------------------===//
-
-class ConstIterator {
-  const Node *ptr;
-
-public:
-  explicit ConstIterator(const Node *_ptr)
-    : ptr(_ptr) {}
-
-  // konverziós konstruktor
-  ConstIterator(Iterator it) : ptr(it.ptr) {}
-
-  // member function declaration
-  ConstIterator operator++();
-
-  ConstIterator operator++(int);
-
-  // TODO: template
-  int operator*();
-
-  bool operator==(ConstIterator other) {
-    return ptr == other.ptr;
+  operator ConstIterator() {
+    return ConstIterator{ptr};
   }
 
-  bool operator!=(ConstIterator other) {
-    return !(*this == other);
-  }
+  //friend class ConstIterator;
 };
 
-//===-------------------------------------------===//
+//===--------------------------------------------===//
 // Node
-//===-------------------------------------------===//
+//===--------------------------------------------===//
 
 struct Node {
   int data;
   Node *next;
 };
 
-//===-------------------------------------------===//
+//===--------------------------------------------===//
 // Iterator implementation
-//===-------------------------------------------===//
+//===--------------------------------------------===//
 
-// member function definition
-// ++it (++prefix)
 Iterator Iterator::operator++() {
   ptr = ptr->next;
   return *this;
 }
 
-// it++ (postfix++)
 Iterator Iterator::operator++(int) {
   Iterator prev = *this;
   ptr = ptr->next;
@@ -93,18 +95,15 @@ int& Iterator::operator*() {
   return ptr->data;
 }
 
-//===-------------------------------------------===//
+//===--------------------------------------------===//
 // ConstIterator implementation
-//===-------------------------------------------===//
+//===--------------------------------------------===//
 
-// member function definition
-// ++it (++prefix)
 ConstIterator ConstIterator::operator++() {
   ptr = ptr->next;
   return *this;
 }
 
-// it++ (postfix++)
 ConstIterator ConstIterator::operator++(int) {
   ConstIterator prev = *this;
   ptr = ptr->next;
@@ -115,9 +114,9 @@ int ConstIterator::operator*() {
   return ptr->data;
 }
 
-//===-------------------------------------------===//
+//===--------------------------------------------===//
 // List
-//===-------------------------------------------===//
+//===--------------------------------------------===//
 
 class List {
   Node *head = nullptr;
@@ -125,6 +124,11 @@ class List {
 public:
   // konstruktor
   List() = default;
+
+  // destruktor
+  ~List() {
+    free();
+  }
 
   // másoló konstruktor
   List(const List &other) {
@@ -154,15 +158,12 @@ public:
     return *this;
   }
 
-  // destruktor
-  ~List() {
-    free();
-  }
-
   void push_back(int data) {
-    Node **ptr = &head;
-    while (*ptr != nullptr)
+    Node **ptr = &this->head;
+
+    while (*ptr != nullptr) {
       ptr = &(*ptr)->next;
+    }
 
     *ptr = new Node{data, nullptr};
   }
@@ -185,7 +186,7 @@ public:
 
 private:
   void free() {
-    Node *ptr = head;
+    Node *ptr = this->head;
 
     while (ptr != nullptr) {
       Node *nextPtr = ptr->next;
@@ -196,7 +197,7 @@ private:
 
 public:
   void display() const {
-    Node *ptr = head;
+    Node *ptr = this->head;
     while (ptr != nullptr) {
       std::cout << ptr->data << '\n';
       ptr = ptr->next;
@@ -213,22 +214,17 @@ void print(const List &l) {
 
 int main() {
   List l;
-
-  l.push_back(1);
-  l.push_back(2);
-  l.push_back(3);
+  
+  l.push_back(5);
+  l.push_back(6);
+  l.push_back(7);
 
   Iterator it = l.begin();
   ConstIterator cit = it;
 
-  Iterator nit = Iterator{nullptr};
-
-  const List l3 = l;
-
-  //ConstIterator it = l3.begin();
-  //++it;
-
-  ////*it = 5;
-
-  //l3.display();
+  const List l2 = l;
+  ConstIterator cit2 = l2.begin();
+  ++cit2;
+  //*it = 10;
+  print(l2);
 }
