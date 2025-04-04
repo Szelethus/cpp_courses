@@ -1,4 +1,4 @@
-# Hétedikedik gyak
+# Nyócadik lekcsör
 
 ## Konstans metódusok
 
