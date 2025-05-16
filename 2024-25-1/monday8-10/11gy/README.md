@@ -1,4 +1,4 @@
-# Tíz plusz kettedik gyakorlat
+# Tíz plusz egyedik gyakorlat
 
 ## Hogyan sortoljunk gyorsan?
 
