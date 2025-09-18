@@ -39,12 +39,3 @@
 ### Konstans korrektség
 #### Konstans mutató, konstansRA mutató
 ### Mutatóra mutató
-
-## Tömbök
-### sizeof(t), sizeof(t[0])
-#### Operátor, nem függvény!
-### stacken ábrázolva
-### Túlindexelés, biztonsági rés
-### Sanitizer, valgrind, warningok
-
-## Paraméter átvétel
