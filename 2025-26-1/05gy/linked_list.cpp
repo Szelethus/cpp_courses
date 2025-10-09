@@ -6,18 +6,48 @@ struct Node {
 };
 
 struct List {
-  Node *head;
+  Node *head = nullptr;
+
+  // konstruktor
+  List() = default;
+
+  // destruktor
+  ~List() {
+    free();
+  }
+
+  // másoló konstruktor
+  List(const List &other) {
+    Node *ptr = other.head;
+    while (ptr != nullptr) {
+      push_back(ptr->data);
+      ptr = ptr->next;
+    }
+  }
+
+  // értékadó operátor
+  List& operator=(const List &other) {
+    if (this == &other)
+      return *this;
+
+    free();
+    head = nullptr;
+
+    Node *ptr = other.head;
+    while (ptr != nullptr) {
+      push_back(ptr->data);
+      ptr = ptr->next;
+    }
+    
+    return *this;
+  }
 
   void push_back(int data) {
-    if (head == nullptr) {
-      head = new Node{data, nullptr};
-      return;
-    }
-    Node *ptr = head;
-    while (ptr->next != nullptr)
-      ptr = ptr->next;
+    Node **ptr = &head;
+    while (*ptr != nullptr)
+      ptr = &(*ptr)->next;
     
-    ptr->next = new Node{data, nullptr};
+    *ptr = new Node{data, nullptr};
   }
 
   void display() {
@@ -38,15 +68,24 @@ struct List {
   }
 };
 
-
+void foo(List &l1, List &l2) {
+  l1 = l2;
+}
 
 int main() {
-  List l{nullptr};
+  List l;
   l.push_back(5);
   l.push_back(6);
   l.push_back(7);
 
   l.display();
 
-  l.free();
+  List l2 = l;
+  l2 = l;
+
+  foo(l2, l2);
+
+  std::cout << '\n';
+
+  l2.display();
 }

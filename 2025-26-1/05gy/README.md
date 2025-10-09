@@ -9,6 +9,7 @@
 ### Nem konstans char pointer literálra
 ### nullptr delete
 ### add "egyszerűsítése"
+### int i = 0; int i; i = 0;
 
 
 ### Compiler generated methods
