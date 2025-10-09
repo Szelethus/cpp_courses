@@ -1,0 +1,31 @@
+(1) Mit ír ki a következő program                   és miért?
+
+void f(int t[5]) {
+  std::cout << sizeof(t) / sizeof(t[0]) << '\n'; // ???
+}
+
+void g() {
+  int t[5] = {1,2,3,4,5};
+  std::cout << sizeof(int) << '\n'; // output: 4
+  std::cout << sizeof(int *) << '\n'; // output: 8
+  std::cout << sizeof(t) << '\n'; // output: 20
+  f(t);
+}
+
+(2) Miért nem kell kiírni a << operátor elé az std
+névteret, annak ellenére hogy onnan származik?
+
+std::string str = "alma";
+operator<<(std::cout, str);
+
+(3) Írjunk egy swap függvényt mely referenciával
+veszi át a paramétereit!
+
+void swap( ???, ??? ) {
+  ...
+}
+
+void f() {
+  int c = 5, d = 8;
+  swap(c, d);
+}
