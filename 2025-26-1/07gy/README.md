@@ -1,15 +1,4 @@
-
-### signed, unsigned
-### int pi = 3, 14;
-### 0,1-enként emelkedő ciklus
-#### Memóriacímet is másolni kell
-#### Copy elision, By-value optimization
-### https://en.cppreference.com/w/cpp/language/operator_precedence
-### NULL vs std::nullptr
-### Nem konstans char pointer literálra
-### nullptr delete
-### add "egyszerűsítése"
-### int i = 0; int i; i = 0;
+# 7. gyakorlat
 
 #### Copy konstruktor Miért nem konstans referenciával térünk vissza
 
@@ -42,17 +31,4 @@
 ### Default template paraméter
 ### Template parameter deduction
 #### Array length
-
-## Osztály template
-### Templateek lustasága
-#### Template template paraméter
-
-## Template specializáció: factorial
-### std::vector<bool>
-### Factorial
-
-## Dependent scope
-
-## List -> List <T>
-### ConstIterator visszatérési értéke
 

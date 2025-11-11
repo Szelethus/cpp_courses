@@ -1,15 +1,5 @@
 
-### signed, unsigned
-### int pi = 3, 14;
-### 0,1-enként emelkedő ciklus
-#### Memóriacímet is másolni kell
-#### Copy elision, By-value optimization
-### https://en.cppreference.com/w/cpp/language/operator_precedence
-### NULL vs std::nullptr
-### Nem konstans char pointer literálra
-### nullptr delete
-### add "egyszerűsítése"
-### int i = 0; int i; i = 0;
+# 6. gyakorlat
 
 #### Copy konstruktor (shallow, deep copy)
 ##### Miért nem konstans referenciával térünk vissza
