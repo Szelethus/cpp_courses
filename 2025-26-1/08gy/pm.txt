@@ -1,1 +1,44 @@
+// (1) Írjunk egy kétparaméteres konstruktort,
+// mely inicializációs listában inicializiálja
+// az i és j adattagokat! A main()-ből hívd meg!
 
+struct A {
+  int i, j;
+
+  //...
+};
+
+int main() {
+  //...
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// (2) Írjunk egy konverziós konstruktort A
+// -hoz, mely a B osztályról konvertál, és
+// rendre a, b-vel inicializálja i, j-t!
+
+struct B {
+  int a, b;
+};
+
+struct A {
+  int i, j;
+
+  //...
+};
+
+B b{1, 2};
+A a = b;
+
+// (3) Mi az a "Rule of 3"?
