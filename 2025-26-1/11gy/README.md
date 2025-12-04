@@ -28,6 +28,12 @@
 ### ekvivalens elemek sorrendje
 ### stable_sort
 
+## partition, stable_partition, partition_point, is_partitioned
+
+## std::remove
+### size megnézése
+### hasonlít a partitionra
+
 ## OOP
 ### enkapszuláció
 ### kód újrafelhasználás
@@ -38,7 +44,7 @@
 
 ### Shape (x, y), area
 #### Circle, public öröklödés, a public később
-##### area függvényben x, y privét, legyen protected
+##### area függvényben x, y privát, legyen protected
 #### Rectangle
 
 ### protected láthatóság
@@ -59,5 +65,15 @@
 #### Abstract típus (privát destruktor)
 #### Explicit namespace resolution
 
+
 ## Castok
-### dynamic_cast
+### dynamic_cast, static_cast, const_cast, reinterpret_cast
+
+
+### Általánosítás
+### Többszörös öröklődés
+
+### diamond
+#### double citizenship
+#### https://stackoverflow.com/questions/225929/what-is-the-exact-problem-with-multiple-inheritance
+#### https://stackoverflow.com/questions/406081/why-should-i-avoid-multiple-inheritance-in-c
