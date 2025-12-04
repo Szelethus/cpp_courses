@@ -1,4 +1,4 @@
-# Nyócadik gyakorlat
+# 9. gyakorlat
 
 ## STL
 ### Konténerek: szekvenciális, asszociatív, konténer adapter

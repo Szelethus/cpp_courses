@@ -1,14 +1,4 @@
-# Nyócadik gyakorlat
-
-## Eddig kimaradt:
-### signed, unsigned
-### int pi = 3, 14;
-#### Memóriacímet is másolni kell
-#### Copy elision, By-value optimization
-### https://en.cppreference.com/w/cpp/language/operator_precedence
-### NULL vs std::nullptr
-### Nem konstans char pointer literálra
-### nullptr delete
+# 10. gyakorlat
 
 ## set
 ### Piros-fekete fa
@@ -49,28 +39,3 @@
 ##### nem konstans
 #### iterator pair-t ad vissza
 #### insert, std::make_pair
-
--------------------------------
-
-## Algoritmusok
-### findSecond(VectIt begin, VectIt end, const int &v)
-#### vector<int> második eleme
-#### vector<T>
-#### tetszőleges iterátor
-### Iterátor kategóriák
-#### input, forward, bidirectional, random access
-##### int-re hogy működik?
-#### std::advance
-#### List iterátorosítása
-
-### find, find_if
-#### ADL
-#### speciális függvényeket (pl. set::find) célszerű preferálni
-#### EKVIVALENCIA MÁS
-
-## sort
-### nem tudjuk előre a végeredményt véletlenül?
-### std::set-be rakás
-#### vector::assign
-### ekvivalens elemek sorrendje
-### stable_sort
