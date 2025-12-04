@@ -1,0 +1,8 @@
+(1) Írjunk egy rövid példakódot, mely tartalmaz
+templatekhez köthető dependent scope-ot!
+
+(2) Írjunk egy bináris predikátum funktort, mely
+két int-hez rendel egy logikai értéket!
+
+(3) Mi a vector osztálynál tapasztalható iterátor
+invalidáció?
