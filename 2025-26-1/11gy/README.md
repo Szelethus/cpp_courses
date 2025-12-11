@@ -1,21 +1,5 @@
 # Egyegyedik gyakorlás
 
-## Eddig kimaradt:
-### NULL vs std::nullptr
-### Nem konstans char pointer literálra
-### nullptr delete
--------------------------------------
-## Algoritmusok
-### findSecond(VectIt begin, VectIt end, const int &v)
-#### vector<int> második eleme
-#### vector<T>
-#### tetszőleges iterátor
-### Iterátor kategóriák
-#### input, forward, bidirectional, random access
-##### int-re hogy működik?
-#### std::advance
-#### List iterátorosítása
-
 ### find, find_if
 #### ADL
 #### speciális függvényeket (pl. set::find) célszerű preferálni
@@ -64,16 +48,3 @@
 #### tisztán virtuális
 #### Abstract típus (privát destruktor)
 #### Explicit namespace resolution
-
-
-## Castok
-### dynamic_cast, static_cast, const_cast, reinterpret_cast
-
-
-### Általánosítás
-### Többszörös öröklődés
-
-### diamond
-#### double citizenship
-#### https://stackoverflow.com/questions/225929/what-is-the-exact-problem-with-multiple-inheritance
-#### https://stackoverflow.com/questions/406081/why-should-i-avoid-multiple-inheritance-in-c
