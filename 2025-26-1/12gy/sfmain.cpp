@@ -86,7 +86,11 @@ int main()
   {
     your_mark = smx.count( 1 ) + smx.count( max - 1 );
   }
-  /* 3-as
+
+
+
+
+
   smxf.inverse();
   sstf.inverse();
   sstf.inverse();
@@ -108,8 +112,12 @@ int main()
   {
     your_mark = *(ti.begin()) + sst.size();
   }
-  */
-  /* 4-es
+
+
+
+
+
+
   ~smxf;
   ~sstf;
 
@@ -132,8 +140,8 @@ int main()
   {
     your_mark = *(smx.begin()) - smx.count( max - 1 );
   }
-  */
-  /* 5-os
+
+
   std::set<std::string, string_size_less> langs;
   langs.insert( "C++" );
   langs.insert( "C#" );
@@ -152,7 +160,9 @@ int main()
   {
     your_mark = langs.size() + langs.begin()->size();
   }
-  */
+
+
+
   std::cout << "Your mark is " << your_mark;
   std::endl( std::cout );
 }
