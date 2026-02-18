@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 
 char encode(char c) {
   std::string from = "aeiou";
@@ -10,32 +9,25 @@ char encode(char c) {
       return to[i];
     }
   }
+  
   return c;
 }
 
 int main() {
-  std::ifstream ifs("input.txt");
-  if (ifs.fail()) {
-    std::cout << "Failed to open file!\n";
-    return -1;
-  }
+  std::cout << "Please provide an input: ";
 
-  std::string input;
-
-  int N;
-  ifs >> N;
-
-  ifs.ignore();
-
+  std::string str;
   std::string tmp;
-  for (int i = 0; i < N; ++i) {
-    std::getline(ifs, tmp);
-    input += tmp + '\n';
+
+  std::cin >> tmp;
+  while (true) {
+    str += tmp;
+    std::cin >> tmp;
   }
 
-  for (int i = 0; i < input.size(); ++i) {
-    input[i] = encode(input[i]);
+  for (int i = 0; i < str.size(); ++i) {
+    str[i] = encode(str[i]);
   }
 
-  std::cout << "Your encoded character is: " << input << '\n';
+  std::cout << "Your encoded input is: " << str << '\n';
 }

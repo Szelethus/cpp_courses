@@ -21,11 +21,15 @@ int main() {
     return -1;
   }
 
+  int N;
+  ifs >> N;
+  ifs.ignore();
+
   std::string str;
   std::string tmp;
 
   std::getline(ifs, tmp);
-  while (!ifs.fail()) {
+  for (int i = 0; i < N; ++i) {
     str += tmp + '\n';
     std::getline(ifs, tmp);
   }
