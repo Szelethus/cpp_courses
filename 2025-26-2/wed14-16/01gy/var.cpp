@@ -1,20 +1,19 @@
-#include <iostream>
-
 int main() {
-  unsigned short int s = 4;
-  unsigned int i = 5;
-  unsigned long int li = 6;
-  unsigned long long int lli = 7;
+  char c = 'k';
 
-  char c = '\n';
+  signed short int ss;
+  int alma = 5;
+  signed long int sli;
+  signed long long int slli;
 
-  bool b = true;
+  unsigned short int us;
+  unsigned int u = 5;
+  unsigned long int uli;
+  unsigned long long int ulli;
 
-  float f = 1.2;
-  double d = 6.5;
+  float f = 1.5;
+  double d = 3.9;
   long double ld = 9.0;
 
-  i = 3.9;
-
-  std::cout << i << '\n';
+  int i = 3.9;
 }
