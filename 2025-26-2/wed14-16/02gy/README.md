@@ -31,8 +31,6 @@
 ### Nem létező fájl
 ### getline
 
-## Fájlokra bontás, fordítás lépései
-
 ## Jobbérték, balérték, láthatóság, élettartam
 ### globális változók
 ### automatikus változók, heap
