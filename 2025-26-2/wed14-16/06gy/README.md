@@ -54,8 +54,3 @@
 ## Konstans metódusok
 
 
-
-## operator<<
-## operator>>
-## std::endl
-## Reference visszatérés
