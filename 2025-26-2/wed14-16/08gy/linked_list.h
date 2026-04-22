@@ -81,8 +81,8 @@ public:
   // konstruktor
   List() {}
 
-  using Iterator = Iterator<T>;
-  using ConstIterator = ConstIterator<T>;
+  using Iterator = ::Iterator<T>;
+  using ConstIterator = ::ConstIterator<T>;
 
   Iterator begin() { return Iterator{head}; }
   Iterator end() { return Iterator{nullptr}; }
