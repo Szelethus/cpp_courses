@@ -1,0 +1,12 @@
+Standard
+Template
+Library
+
+1. Algoritmusok
+2. Konténerek
+  1. Szekvenciális: megőrzik a beszúrás sorrendjét
+     ***vector***, list, deque, string
+  2. Asszociatív: nem őrzik meg a beszúrás sorrendjét
+     set, multiset, map, multimap
+  3. Konténer adapterek: becsomagolnak egy meglévő STL konténert
+     queue, stack
