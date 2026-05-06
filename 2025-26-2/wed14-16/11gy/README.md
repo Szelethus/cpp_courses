@@ -38,23 +38,3 @@
 ### Shape (x, y), area
 #### Circle, public öröklödés, a public később
 ##### area függvényben x, y privát, legyen protected
-#### Rectangle
-
-### protected láthatóság
-### Öröklődési fajták
-
-### konstruktor delegáció
-
-### értékadás
-#### slicing
-### Dinamikus/Statikus típus
-
-### virtuális függvények
-#### Polimorfizmus, polimorfikus típus
-
-### vtable, vpointer
-
-#### tisztán virtuális
-#### Abstract típus (privát destruktor)
-#### Explicit namespace resolution
-
