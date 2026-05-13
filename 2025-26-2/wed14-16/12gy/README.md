@@ -36,8 +36,3 @@
 ## Castok
 ### dynamic_cast, static_cast, const_cast, reinterpret_cast
 
-### Általánosítás
-### Többszörös öröklődés
-#### https://stackoverflow.com/questions/225929/what-is-the-exact-problem-with-multiple-inheritance
-#### https://stackoverflow.com/questions/406081/why-should-i-avoid-multiple-inheritance-in-c
-
