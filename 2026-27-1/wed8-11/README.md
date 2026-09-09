@@ -10,7 +10,6 @@ A gyakorlaton készült kódokat, illetve a korábbi féléveken készített kó
 
 ## Tárgy követelményei
 
-
 * Legfeljebb háromszor lehet igazolatlanul hiányozni. 
 * A gyakorlaton legalább 20 pontot kell összegyűjteni
   * Ebből 20 pont heti kis zárthelyikből áll, kb. 10 perces rövid számonkérés, darabja 2 pontot ér.
@@ -27,8 +26,20 @@ Az érdemjegy a következőképpen kerül meghatározásra:
  - 71-85 pont: jó
  - 86-100 pont: jeles
 
+## Egyetemi sajátosságok
+
+* Nem fogok nevelni, **de mindenkinek joga van dolgozni és tanulni**. Aki viszont nem figyel, kérem csendben tegye!
+* Mindenkinek a saját joga és felelőssége az idejének a beosztása
+* A gyakorlatról ki lehet menni mosdóba
+
 ## AI használat
 
-** Számonkérésen szigorúan tilos! **
+**Számonkérésen szigorúan tilos!**
 
-
+* Tanuláshoz tud nagyon hasznos lenni
+  * Preferált angolul
+  * "Miért így működik ez a nyelvben?"
+  * "Rejts el egy hibát ebben a programban"
+* Tud rendkívül kártékony lenni
+  * "Írd meg nekem ezt a beadandót"
+  * "Mi nem működik a kódomban?" (legalábbis csak ésszel!)
