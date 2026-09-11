@@ -4,7 +4,7 @@
 
 Elérhető vagyok emailen a dkszelethus <kukac> gmail <pont> com címen. Teamset nagyon ritkán nézem. Bátran lehet fordulni hozzám kérdésekkel, kérésekkel, mind a tárgy tematikáját illetően (pl. "Miért fordul a kód az egyik fordítóval, de nem a másikkal?"), megjegyzéssel (pl. "Szerintem nehezen érthetőek voltak a pointerek, talán jobb lenne ezt több ábrával elmondani mégegyszer"), vagy bármi egyébbel.
 
-A gyakorlatot pontban XX:XX-kor kezdődik.
+A gyakorlatot pontban 8:15-kor kezdődik.
 
 A gyakorlaton készült kódokat, illetve a korábbi féléveken készített kódokat ebben a repositoryban lehet elérni: https://github.com/Szelethus/cpp_courses/tree/master/2026-27-1/wed8-11/
 
