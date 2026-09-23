@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include <stdio.h>
 
 // forward declaration
@@ -13,10 +14,10 @@ int main() {
 }
 
 void convertLetter(char c) {
-  if (c >= 'A' && c <= 'Z')
-    printf("%c\n", c + 32);
-  else if (c >= 'a' && c <= 'z')
-    printf("%c\n", c - 32);
+  if (isupper(c))
+    printf("%c\n", tolower(c));
+  else if (islower(c))
+    printf("%c\n", toupper(c));
   else
     printf("Not a letter, try again!\n");
 }
