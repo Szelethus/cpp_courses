@@ -19,9 +19,9 @@
 1. Írd ki, hogy a géped hány bájton ábrázol egy `int`, `long int`, `unsigned int`, `unsigned long int`, `char`, `_Bool`, `float`, `double`, `long double` értéket.
 (Használd fel nyugodtan a már korábban elkészített kódodat, ha van!)
 2. Próbáljuk ki az operator chaining-et (a\<b\<c)!
-3. Írasd ki 10-től 0-ig csökkenő sorrendben az egész számokat. Próbáld `int` és `unsigned int` típusú ciklus változóval is megoldani a feladatot.
+<!--3. Írasd ki 10-től 0-ig csökkenő sorrendben az egész számokat. Próbáld `int` és `unsigned int` típusú ciklus változóval is megoldani a feladatot.
 4. Írj programot, mely a standard inputról bekért számról eldönti, hogy szökőév-e. Szökőév minden néggyel osztható év, kivéve, ami százzal is osztható.  Viszont a négyszázzal oszthatók szintén szökőévek lesznek. 
-> - A megoldásban **NE** használj `if`-et!
+> - A megoldásban **NE** használj `if`-et!-->
 5. Készíts egy 6 oldalú dobókocka szimuláló alprogramot! Nézd meg/használd a `rand()` függvényt. A főprogramban dobj egymás után 10-szer a kockával és írasd ki az eredményeket.
 
 
