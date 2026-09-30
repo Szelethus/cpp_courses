@@ -2,10 +2,28 @@
 
 ## Tananyag
 
-- Tömbök
-  - sizeof
-- pointerek
-- preprocesszor makrók
+- Pointerek
+  - címképző, dereferáló operátor
+  - 0, NULL, nullptr
+  - Konstans korrektség
+    - char * = "Hello"
+    - Konstans mutató, konstansRA mutató
+  - Mutatóra mutató
+
+- Tömb paraméter
+  - NEM pythonbeli lista
+  - Pointer decay, sizeof
+    - Tömb pointer + size
+  - Fix méretű tömb paraméter
+  - Értékadás
+  - Template ízelítő
+
+- Stack működése
+
+- Paraméter átvétel: swap
+  - Érték szerint
+  - Referencia / Pointner szerint
+    - Különbség, konvenciók
 
 ## Eddigiek ismétlése, gyakorlása
 
