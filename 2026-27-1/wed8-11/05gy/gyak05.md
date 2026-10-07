@@ -1,5 +1,21 @@
 # 5. gyakorlat
 
+## Tananyag
+
+- Emlékeztető
+    - függvények
+    - pointerek
+
+- Swap példa
+
+- tömbök (int t[] = {1,2,3};)
+
+- Stringek
+    - char[] vs char *
+    - fgets (strcspn), printf -- hogyhogy nincs utóbb size paraméter
+    - null terminated str vs array size
+
+
 ## Tömbök
 
 ***Emlékeztető:*** 
