@@ -10,14 +10,6 @@
 
 - tömbök (int t[] = {1,2,3};)
 
-- karakterek
-    - int getchar
-    - EOF
-
-- Stringek
-    - char[] vs char *
-    - fgets (strcspn), printf -- hogyhogy nincs utóbb size paraméter
-    - null terminated str vs array size
 
 
 ## Tömbök

@@ -1,10 +1,22 @@
 # 6. gyakorlat
 
+## Tananyag
+
+- karakterek
+    - int getchar
+    - EOF
+
+- Stringek
+    - char[] vs char *
+    - fgets (strcspn), printf -- hogyhogy nincs utóbb size paraméter
+    - null terminated str vs array size
+
 ## Pointerek
 
 ***Emlékeztető:*** 
 - Fordítás közben használd a **-W -Wall -Wextra -pedantic** kapcsolókat!
 - Használjuk segítségnek a hivatalos dokumentációt is: [C reference](https://en.cppreference.com/w/c)
+
 
 ### Kötelező feladatok 
 
