@@ -2,14 +2,20 @@
 
 ## Tananyag
 
+- Élettartam hiba - lokális referencia
+
 - karakterek
     - int getchar
     - EOF
 
 - Stringek
-    - char[] vs char *
-    - fgets (strcspn), printf -- hogyhogy nincs utóbb size paraméter
+    - char[] vs char *, printf -- hogyhogy nincs utóbb size paraméter
+    - fgets, strcspn (complamentary span)
     - null terminated str vs array size
+    - saját strcmp
+
+- Fájlból beolvasás
+
 
 ## Pointerek
 
