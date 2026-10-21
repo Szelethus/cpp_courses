@@ -1,5 +1,17 @@
 # 7. gyakorlat
 
+## Tananyag
+
+- atoi vs strtol
+- errno
+- strtod
+- Globális/statikus + dinamikus tárhely
+
+- Fájlból beolvasás
+- Program argumentumok
+- FÁjlokra osztás
+
+
 ## Tömbök, pointerek
 
 ***Emlékeztető:*** 
