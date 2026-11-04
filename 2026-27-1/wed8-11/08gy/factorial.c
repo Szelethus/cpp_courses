@@ -6,6 +6,7 @@ int factorial(int n) {
   else
     return n * factorial(n - 1);
 }
+
 int main() {
   printf("%d\n", factorial(5));
 }
