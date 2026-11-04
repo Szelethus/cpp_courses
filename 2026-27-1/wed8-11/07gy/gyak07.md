@@ -7,10 +7,6 @@
 - strtod
 - Globális/statikus + dinamikus tárhely
 
-- Fájlból beolvasás
-- Program argumentumok
-- FÁjlokra osztás
-
 
 ## Tömbök, pointerek
 
