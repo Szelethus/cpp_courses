@@ -3,7 +3,7 @@
 ## Fordítás lépései
 
 ## Preprocesszor
-### #define, #undef, #ifndf, #ifdef, #else, #endif
+### #define, #undef, #ifndef, #ifdef, #else, #endif
 ### -E -P
 ### #include, rekurzív include, header/include guard
 
@@ -17,9 +17,6 @@
 ### -O2, -save-temps
 ### factorial.cpp példa
 
-- Fájlból beolvasás
-- Program argumentumok
-- FÁjlokra osztás
 
 ## Láthatóság, blokkok, modulok
 
