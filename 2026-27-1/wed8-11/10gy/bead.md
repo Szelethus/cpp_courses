@@ -12,6 +12,10 @@ a program!
 > - Ha a fájl megnyitása sikertelen, adjon egy hibaüzentet és térjen vissza!
 > - Figyeljünk a speciális esetekre: üres fájl, több sorból álló fájl!
 > - Ezt a részfeladatot külön függvényben oldjuk meg!
+> - Ne feledd, nemcsak sorköz lehet whitespace!
+> - Elvárt kimenet ha a fájl tartalma `alma 1 234   k`:
+Numbers: 4
+Whitespaces: 5
 3. Ha a bemeneti paraméter értéke `upper`, akkor a program a bemeneti inputról
 kérjen be **két** fájl nevet. Az egyikben található összes karaktert írja át
 másik fájlba nagybetűvel!
